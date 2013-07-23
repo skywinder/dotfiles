@@ -1,0 +1,25 @@
+[user]
+	name = Petr Korolev
+	email = sky4winder@gmail.com
+[alias]
+	# Aliases
+	ch = checkout
+	st = status
+	mg = merge --no-ff
+	br = branch
+	df = diff
+	ft = fetch
+	ps = push origin
+
+[core]
+	excludesfile = /Users/skywinder/.gitignore_global
+	editor = nano
+
+[difftool "sourcetree"]
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	trustExitCode = true
+[color]
+	ui = true

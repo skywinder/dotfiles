@@ -52,8 +52,17 @@ xcuserdata
 profile
 *.moved-aside
 DerivedData
-.idea/
 *.hmap
+
+#####
+# SkyWinder's additions:
+####
+#*.xcworkspace
+project.xcworkspace/
+.idea/
+#CocoaPods
+Pods
+
 
 #########################
 #the next lines from https://gist.github.com/6054975.git

@@ -46,7 +46,7 @@ alias mg="merge --no-ff"
 
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
-export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
 
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 ###### skywinder

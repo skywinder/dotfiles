@@ -2,8 +2,8 @@
 
 export PS1="\[$(tput setaf 6)\]\u \W$\[$(tput sgr0)\] "
 
-export EDITOR=mcedit
-export GIT_EDITOR=mcedit
+export EDITOR='subl -w'
+export GIT_EDITOR='subl -w'
 
 export LESS_TERMCAP_mb=$'\E[01;33m'
 export LESS_TERMCAP_md=$'\E[01;31m'

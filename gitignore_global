@@ -60,8 +60,9 @@ DerivedData
 #*.xcworkspace
 project.xcworkspace/
 .idea/
+
 #CocoaPods
-Pods
+#Pods/
 
 
 #########################
@@ -87,7 +88,7 @@ Pods
  
 .DS_Store
 *.swp
-*.lock
+#*.lock
 profile
  
  

@@ -53,6 +53,7 @@ profile
 *.moved-aside
 DerivedData
 *.hmap
+*.xccheckout
 
 #####
 # SkyWinder's additions:

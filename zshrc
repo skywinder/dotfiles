@@ -8,14 +8,14 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Customize aliases to your needs:
 alias psg="ps -A | grep"
 alias lsa="ls -a"
 alias lsa="lsa | grep"
 alias cpath="pwd | pbcopy"
-alias init-ssh="exec ssh-agent bash && ssh-add && security unlock-keychain"
+alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+alias gmg="git merge --no-ff"
+alias mg="merge --no-ff"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -39,35 +39,30 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
-alias gmg="git merge --no-ff"
-alias mg="merge --no-ff"
-
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
 export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
 
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
-###### skywinder
+#####  skywinder
 
 # Explicitly configured $PATH variable
-#PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/local/bin:/opt/local/sbin:/usr/X11/bin
+# PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/local/bin:/opt/local/sbin:/usr/X11/bin
 
 # Put any proprietary or private functions/values in ~/.private, and this will source them
-#if [ -f $HOME/.private ]; then
-#    source $HOME/.private
-#fi
+if [ -f $HOME/.private ]; then
+   source $HOME/.private
+fi
 
-# if [ -f $HOME/.profile ]; then
-#     source $HOME/.profile  # Read Mac .profile, if present.
-# fi
+if [ -f $HOME/.profile ]; then
+    source $HOME/.profile  # Read Mac .profile, if present.
+fi
 
 # # qfind - used to quickly find files that contain a string in a directory
-# qfind () {
-#     find . -exec grep -l $1 {} \;
-#     return 0
-# }
+qfind () {
+    find . -exec grep -l $1 {} \;
+    return 0
+}
 
 # # Custom exports
 # ## Set EDITOR to /usr/bin/vim if Vim is installed

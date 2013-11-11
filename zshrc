@@ -60,7 +60,7 @@ fi
 
 # # qfind - used to quickly find files that contain a string in a directory
 qfind () {
-    find . -exec grep -l $1 {} \;
+    find . -exec grep -l -s $1 {} \;
     return 0
 }
 

@@ -63,19 +63,6 @@ export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/sub
 #     source $HOME/.profile  # Read Mac .profile, if present.
 # fi
 
-# # Shell Aliases
-# ## Git Aliases
-# alias gs='git status '
-# alias ga='git add '
-# alias gb='git branch '
-# alias gc='git commit'
-# alias gd='git diff'
-# alias go='git checkout '
-# alias gk='gitk --all&'
-# alias gx='gitx --all'
-# alias got='git '
-# alias get='git '
-
 # # qfind - used to quickly find files that contain a string in a directory
 # qfind () {
 #     find . -exec grep -l $1 {} \;

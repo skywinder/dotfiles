@@ -60,6 +60,7 @@ DerivedData
 #*.xcworkspace
 project.xcworkspace/
 .idea/
+*.xccheckout
 
 #CocoaPods
 #Pods/

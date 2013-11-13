@@ -54,9 +54,9 @@ if [ -f $HOME/.private ]; then
    source $HOME/.private
 fi
 
-if [ -f $HOME/.profile ]; then
-    source $HOME/.profile  # Read Mac .profile, if present.
-fi
+# if [ -f $HOME/.profile ]; then
+#     source $HOME/.profile  # Read Mac .profile, if present.
+# fi
 
 # # qfind - used to quickly find files that contain a string in a directory
 qfind () {

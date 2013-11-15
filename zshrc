@@ -1,4 +1,4 @@
-
+	
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -42,6 +42,13 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
 export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
+
+#to coorect working pods:
+#see: https://github.com/CocoaPods/guides.cocoapods.org/issues/26
+export LC_ALL="en_US.UTF-8"
+#and others locale vars:
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
 
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder

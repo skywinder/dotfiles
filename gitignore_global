@@ -96,8 +96,8 @@ xcuserdata
 
 ####
 # Xcode 5
-# Some VCS metadata should be ignored:
-*.xccheckout
+# Some VCS metadata should be ignored: ..or may be not. :)
+#*.xccheckout
 
 ####
 # AppCode

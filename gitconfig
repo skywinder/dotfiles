@@ -9,7 +9,7 @@
 	br = branch
 	df = diff
 	ft = fetch
-	ps = push origin
+	ps = push -u origin --all
 
 [core]
 	excludesfile = ~/.gitignore_global

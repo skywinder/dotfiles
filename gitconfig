@@ -10,6 +10,7 @@
 	df = diff
 	ft = fetch
 	ps = push -u origin --all
+	pl = pull
 
 [core]
 	excludesfile = ~/.gitignore_global

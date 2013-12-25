@@ -42,6 +42,9 @@ Thumbs.db
 # c.f. http://www.westwind.com/reference/os-x/invisibles.html
 *.swp
 
+# Open Office temp file
+.~*.doc#
+
 # vim temporary files
 *~
 *.swp

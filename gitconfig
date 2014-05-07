@@ -25,5 +25,3 @@
 	ui = true
 [push]
 	default = matching
-[merge]
-	ff = false

@@ -24,6 +24,6 @@
 [color]
 	ui = true
 [push]
-	default = matching
+	default = current
 [branch]
 	autosetuprebase = always

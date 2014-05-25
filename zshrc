@@ -42,6 +42,9 @@ source $ZSH/oh-my-zsh.sh
 #my actual PATH = /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin			  
 #so, next string not needed
 export PATH=$PATH:$HOME/bin
+#for macports:
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
 
 export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
 

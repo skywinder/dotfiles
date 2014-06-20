@@ -1,4 +1,3 @@
-	
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -39,13 +38,17 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-#my actual PATH = /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin			  
-#so, next string not needed
+# My actual PATH = /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin
+# So, next string probably not needed..
 export PATH=$PATH:$HOME/bin
-#for macports:
+
+# For macports:
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
+# The variable for Theos.
+export THEOS=/opt/theos
 
+# Sublime as default text editor
 export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
 
 #to coorect working pods:

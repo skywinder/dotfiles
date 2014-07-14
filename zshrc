@@ -44,7 +44,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:$HOME/bin
 #for macports:
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-
+#for brew:
+export PATH=/usr/local/sbin:$PATH
 
 export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
 

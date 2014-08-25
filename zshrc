@@ -45,6 +45,9 @@ export PATH=$PATH:$HOME/bin
 # For macports:
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
+#for brew:
+export PATH=/usr/local/sbin:$PATH
+
 # The variable for Theos.
 export THEOS=/opt/theos
 

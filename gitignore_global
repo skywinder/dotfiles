@@ -58,7 +58,7 @@ profile
 *.xccheckout
 
 # http://stackoverflow.com/questions/10956312/is-the-project-xcworkspace-file-important
-project.xcworkspace/
+#project.xcworkspace/
 
 # NB: NIB/XIB files still exist even on Storyboard projects, so we want this...
 *~.nib

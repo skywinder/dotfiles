@@ -16,6 +16,7 @@ alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 alias gmg="git merge --no-ff"
 alias mg="merge --no-ff"
 alias srctree='open -a SourceTree .'
+alias hpr='hub pull-request'
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 

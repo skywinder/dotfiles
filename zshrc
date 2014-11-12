@@ -62,6 +62,8 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
+export CHANGELOG_GITHUB_TOKEN="8587bb22f6bf125454768a4a19dbcc774ea68d48"
+
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder
 
@@ -88,3 +90,5 @@ qfind () {
 # if [ -f /usr/bin/vim ]; then
 #     export EDITOR=/usr/bin/vim
 # fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

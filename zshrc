@@ -16,6 +16,8 @@ alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 alias gmg="git merge --no-ff"
 alias mg="merge --no-ff"
 alias srctree='open -a SourceTree .'
+alias hpr='hub pull-request'
+alias ghistory='history | grep'
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -61,6 +63,8 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
+export CHANGELOG_GITHUB_TOKEN="8587bb22f6bf125454768a4a19dbcc774ea68d48"
+
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder
 
@@ -87,3 +91,5 @@ qfind () {
 # if [ -f /usr/bin/vim ]; then
 #     export EDITOR=/usr/bin/vim
 # fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -156,5 +156,8 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+"Map enter for new lines w/o insert mode
+nmap <CR> o<Esc>
+nmap <S-Enter> O<Esc>
 
 "------------------------------------------------------------

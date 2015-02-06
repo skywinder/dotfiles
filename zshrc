@@ -54,7 +54,9 @@ export PATH=/usr/local/sbin:$PATH
 export THEOS=/opt/theos
 
 # Sublime as default text editor
-export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
+#export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
+#Hello, vim!
+export EDITOR=vim
 
 #to coorect working pods:
 #see: https://github.com/CocoaPods/guides.cocoapods.org/issues/26

@@ -28,6 +28,7 @@ Plugin 'gmarik/Vundle.vim'
 
 "skywinder's plugins:
 "Plugin ''
+Plugin 'tpope/vim-surround'
 Plugin 'sjl/badwolf'
 Plugin 'kana/vim-fakeclip'
 

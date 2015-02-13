@@ -28,6 +28,7 @@ Plugin 'gmarik/Vundle.vim'
 
 "skywinder's plugins:
 "Plugin ''
+Plugin 'sjl/badwolf'
 Plugin 'kana/vim-fakeclip'
 
 " All of your Plugins must be added before the following line

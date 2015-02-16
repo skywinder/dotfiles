@@ -36,7 +36,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow git-hubflow ruby rvm rails gem brew pod osx sublime)
+plugins=(git git-flow git-hubflow ruby rvm rails gem brew pod osx sublime npm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -54,7 +54,9 @@ export PATH=/usr/local/sbin:$PATH
 export THEOS=/opt/theos
 
 # Sublime as default text editor
-export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
+#export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
+#Hello, vim!
+export EDITOR=vim
 
 #to coorect working pods:
 #see: https://github.com/CocoaPods/guides.cocoapods.org/issues/26

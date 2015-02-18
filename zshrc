@@ -50,6 +50,9 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 #for brew:
 export PATH=/usr/local/sbin:$PATH
 
+#for npm:
+export PATH="$HOME/.node/bin:$PATH"
+
 # The variable for Theos.
 export THEOS=/opt/theos
 

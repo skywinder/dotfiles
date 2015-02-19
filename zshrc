@@ -18,6 +18,8 @@ alias mg="merge --no-ff"
 alias srctree='open -a SourceTree .'
 alias hpr='hub pull-request'
 alias ghistory='history | grep'
+alias vim ='mvim'
+alias vimdiff='mvimdiff'
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -60,6 +62,8 @@ export THEOS=/opt/theos
 #export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
 #Hello, vim!
 export EDITOR=vim
+#Git vim editor with insert mode at start:
+export GIT_EDITOR='vim +startinsert'
 
 #to coorect working pods:
 #see: https://github.com/CocoaPods/guides.cocoapods.org/issues/26
@@ -69,6 +73,8 @@ export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
 export CHANGELOG_GITHUB_TOKEN="8587bb22f6bf125454768a4a19dbcc774ea68d48"
+
+export LOLCOMMITS_DELAY=1
 
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder

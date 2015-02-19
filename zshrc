@@ -18,8 +18,6 @@ alias mg="merge --no-ff"
 alias srctree='open -a SourceTree .'
 alias hpr='hub pull-request'
 alias ghistory='history | grep'
-alias vim ='mvim'
-alias vimdiff='mvimdiff'
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 

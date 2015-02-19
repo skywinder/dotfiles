@@ -34,3 +34,4 @@ done
 echo -n "Clonning bin directory ..."
 ./install_bin.sh
 echo "Done"
+#check if ~/.vim/bundle/Vundle.vim is empty - run "git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim"

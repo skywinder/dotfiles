@@ -34,6 +34,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'sjl/badwolf'
 Plugin 'kana/vim-fakeclip'
 
+" Usage by example: 
+"   Type "5j" (without quotes) and then ";" to repeat "5j".
+Plugin 'repmo.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

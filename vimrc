@@ -1,3 +1,6 @@
+"------------------------------------------------------------
+" Vundle {{{1
+"
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -26,8 +29,7 @@ Plugin 'gmarik/Vundle.vim'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-"skywinder's plugins:
-"Plugin ''
+" My vundle plugins:
 Plugin 'tpope/vim-surround'
 Plugin 'sjl/badwolf'
 Plugin 'kana/vim-fakeclip'
@@ -47,18 +49,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
 
 "------------------------------------------------------------
 " Features {{{1
 "
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
@@ -71,7 +65,6 @@ filetype indent plugin on
 
 " Enable syntax highlighting
 syntax on
-
 
 "------------------------------------------------------------
 " Must have options {{{1
@@ -205,6 +198,11 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
+
 "------------------------------------------------------------
 "Enble OS X clipboard support:
 set clipboard=unnamed
+"Increment search:
+:set incsearch

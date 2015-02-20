@@ -1,0 +1,5 @@
+:map <C-Up> :action MethodUp<CR>
+:map <C-Down> :action MethodDown<CR>
+
+:imap <C-Up> <ESC>:action MethodUp<CR>i
+:imap <C-Down> <ESC>:action MethodDown<CR>i

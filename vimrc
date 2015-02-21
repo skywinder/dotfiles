@@ -1,15 +1,62 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
+"------------------------------------------------------------
+" Vundle {{{1
+"
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+" My vundle plugins:
+Plugin 'tpope/vim-surround'
+Plugin 'sjl/badwolf'
+Plugin 'kana/vim-fakeclip'
+
+" Usage by example: 
+"   Type "5j" (without quotes) and then ";" to repeat "5j".
+Plugin 'repmo.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 
 "------------------------------------------------------------
 " Features {{{1
 "
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
@@ -22,7 +69,6 @@ filetype indent plugin on
 
 " Enable syntax highlighting
 syntax on
-
 
 "------------------------------------------------------------
 " Must have options {{{1
@@ -133,15 +179,18 @@ set pastetoggle=<F11>
 
 " Indentation settings for using 2 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
-" Indentation settings for using hard tabs for indent. Display tabs as
-" two characters wide.
-"set shiftwidth=2
-"set tabstop=2
+"------------------------------------------------------------
+" My personal sets:
 
+"Enble OS X clipboard support:
+set clipboard=unnamed
+
+"Increment search:
+:set incsearch
 
 "------------------------------------------------------------
 " Mappings {{{1
@@ -156,8 +205,7 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-"Map enter for new lines w/o insert mode
-nmap <CR> o<Esc>
-nmap <S-Enter> O<Esc>
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
 
 "------------------------------------------------------------

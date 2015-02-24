@@ -103,3 +103,6 @@ qfind () {
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+#for linux clipboards:
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection clipboard -o'

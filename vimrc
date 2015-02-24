@@ -47,6 +47,7 @@ filetype plugin indent on    " required
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" vim +PluginInstall +qall - To install from command line
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
@@ -208,4 +209,8 @@ nnoremap <C-L> :nohl<CR><C-L>
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
+"------------------------------------------------------------
+"Fast quit and save from insert mode
+:map <C-X> <ESC>:x<CR>
+:imap <C-X> <ESC>:x<CR>
 "------------------------------------------------------------

@@ -210,3 +210,7 @@ nnoremap <C-L> :nohl<CR><C-L>
 nnoremap <CR> :noh<CR><CR>
 
 "------------------------------------------------------------
+"Fast quit and save from insert mode
+:map <C-X> <ESC>:x<CR>
+:imap <C-X> <ESC>:x<CR>
+"------------------------------------------------------------

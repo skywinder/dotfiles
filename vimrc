@@ -29,14 +29,20 @@ Plugin 'gmarik/Vundle.vim'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-" My vundle plugins:
-Plugin 'tpope/vim-surround'
-Plugin 'sjl/badwolf'
-Plugin 'kana/vim-fakeclip'
+" Plugins:
 
-" Usage by example: 
-"   Type "5j" (without quotes) and then ";" to repeat "5j".
+" Surround text in bracets
+Plugin 'tpope/vim-surround'
+"Support global clipboard in OS X
+Plugin 'kana/vim-fakeclip'
+" Usage: Type "5j" (without quotes) and then ";" to repeat "5j".
 Plugin 'repmo.vim'
+" Fast comment lines
+Plugin 'scrooloose/nerdcommenter'
+
+" Color schemes:
+Plugin 'sjl/badwolf'
+Plugin 'tomasr/molokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -213,4 +219,9 @@ nnoremap <CR> :noh<CR><CR>
 "Fast quit and save from insert mode
 :map <C-X> <ESC>:x<CR>
 :imap <C-X> <ESC>:x<CR>
+
 "------------------------------------------------------------
+"Colorscheme:
+"colorscheme badwolf
+colorscheme molokai
+

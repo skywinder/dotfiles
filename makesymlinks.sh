@@ -27,14 +27,18 @@ for file in $files; do
     #check, that file is not sym-link to our file:
     sym_path=`eval "readlink ~/.$file"`
     subpath=`echo $dir`
-    if [[ $sym_path == "$subpath"* ]]
+
+    if [[ -n "$sym_path"  && $sym_path == "$subpath"* ]] 
     then
-        echo "File $file is already linked -> skip"
+        echo "$file already linked -> skip"
         continue
     fi
-    echo "Moving $file ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
+    if [[ -e ~/.$file ]]
+    then
+        echo "Moving .$file to $olddir"
+        mv ~/.$file ~/dotfiles_old/
+    fi
+    echo "Creating symlink to .$file in home directory."
     ln -s $dir/$file ~/.$file
 done
 

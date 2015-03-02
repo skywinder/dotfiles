@@ -215,10 +215,12 @@ nnoremap <C-L> :nohl<CR><C-L>
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
-"------------------------------------------------------------
-"Fast quit and save from insert mode
+" Fast quit and save from insert mode
 :map <C-X> <ESC>:x<CR>
 :imap <C-X> <ESC>:x<CR>
+
+" Quick exit from insert mode ( http://vim.wikia.com/wiki/Avoid_the_escape_key)
+inoremap jj <ESC>
 
 "------------------------------------------------------------
 "Colorscheme:

@@ -222,6 +222,10 @@ nnoremap <CR> :noh<CR><CR>
 " Quick exit from insert mode ( http://vim.wikia.com/wiki/Avoid_the_escape_key)
 inoremap jj <ESC>
 
+" Insert newline without entering insert mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 "------------------------------------------------------------
 "Colorscheme:
 "colorscheme badwolf

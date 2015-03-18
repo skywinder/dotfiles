@@ -43,6 +43,7 @@ Plugin 'scrooloose/nerdcommenter'
 " Color schemes:
 Plugin 'sjl/badwolf'
 Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -229,5 +230,5 @@ nmap <CR> o<Esc>
 "------------------------------------------------------------
 "Colorscheme:
 "colorscheme badwolf
-colorscheme molokai
-
+"colorscheme molokai
+colorscheme gruvbox

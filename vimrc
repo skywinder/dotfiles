@@ -232,3 +232,4 @@ nmap <CR> o<Esc>
 "colorscheme badwolf
 "colorscheme molokai
 colorscheme gruvbox
+set background=dark    " Setting dark mode

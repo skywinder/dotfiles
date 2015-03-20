@@ -29,14 +29,21 @@ Plugin 'gmarik/Vundle.vim'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-" My vundle plugins:
-Plugin 'tpope/vim-surround'
-Plugin 'sjl/badwolf'
-Plugin 'kana/vim-fakeclip'
+" Plugins:
 
-" Usage by example: 
-"   Type "5j" (without quotes) and then ";" to repeat "5j".
+" Surround text in bracets
+Plugin 'tpope/vim-surround'
+"Support global clipboard in OS X
+Plugin 'kana/vim-fakeclip'
+" Usage: Type "5j" (without quotes) and then ";" to repeat "5j".
 Plugin 'repmo.vim'
+" Fast comment lines
+Plugin 'scrooloose/nerdcommenter'
+
+" Color schemes:
+Plugin 'sjl/badwolf'
+Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -209,8 +216,20 @@ nnoremap <C-L> :nohl<CR><C-L>
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
-"------------------------------------------------------------
-"Fast quit and save from insert mode
+" Fast quit and save from insert mode
 :map <C-X> <ESC>:x<CR>
 :imap <C-X> <ESC>:x<CR>
+
+" Quick exit from insert mode ( http://vim.wikia.com/wiki/Avoid_the_escape_key)
+inoremap jj <ESC>
+
+" Insert newline without entering insert mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 "------------------------------------------------------------
+"Colorscheme:
+"colorscheme badwolf
+"colorscheme molokai
+colorscheme gruvbox
+set background=dark    " Setting dark mode

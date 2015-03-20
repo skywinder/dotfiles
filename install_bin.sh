@@ -7,7 +7,9 @@ if [ ! -d ~/bin ]; then
     git clone https://github.com/skywinder/bin.git
 
 else
-	echo "~/bin folder already exists. Cancel."
+    echo "~/bin already exists -> to pull from master."
+    cd ~/bin
+    git pull origin master
 fi
 }
 

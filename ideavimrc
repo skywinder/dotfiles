@@ -1,3 +1,5 @@
+source ~/.vimrc
+
 :map <C-Up> :action MethodUp<CR>
 :map <C-Down> :action MethodDown<CR>
 

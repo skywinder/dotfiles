@@ -227,6 +227,9 @@ inoremap jj <ESC>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
+"To clear the last used search pattern:
+nnoremap <F3> :let @/ = ""<CR>
+
 "------------------------------------------------------------
 "Colorscheme:
 "colorscheme badwolf

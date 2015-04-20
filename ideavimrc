@@ -5,3 +5,13 @@ source ~/.vimrc
 
 :imap <C-Up> <ESC>:action MethodUp<CR>i
 :imap <C-Down> <ESC>:action MethodDown<CR>i
+
+:map <S-Up> <ESC>:action EditorUpWithSelection<CR>
+:map <S-Down> <ESC>:action EditorDownWithSelection<CR>
+:map <S-Left> <ESC>:action EditorLeftWithSelection<CR>
+:map <S-Right> <ESC>:action EditorRightWithSelection<CR>
+
+:imap <S-Up> <ESC>:action EditorUpWithSelection<CR>i
+:imap <S-Down> <ESC>:action EditorDownWithSelection<CR>i
+:imap <S-Left> <ESC>:action EditorLeftWithSelection<CR>i
+:imap <S-Right> <ESC>:action EditorRightWithSelection<CR>i

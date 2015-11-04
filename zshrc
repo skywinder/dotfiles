@@ -12,7 +12,6 @@ alias psg="ps -A | grep"
 alias lsa="ls -a"
 alias lsa="lsa | grep"
 alias cpath="pwd | pbcopy"
-alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 alias gmg="git merge --no-ff"
 alias mg="merge --no-ff"
 alias srctree='open -a SourceTree .'

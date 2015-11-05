@@ -107,6 +107,5 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 
-eval $(thefuck --alias)
 # added by travis gem
 [ -f /Users/petrkorolev/.travis/travis.sh ] && source /Users/petrkorolev/.travis/travis.sh

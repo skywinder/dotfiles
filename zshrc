@@ -12,7 +12,6 @@ alias psg="ps -A | grep"
 alias lsa="ls -a"
 alias lsa="lsa | grep"
 alias cpath="pwd | pbcopy"
-alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 alias gmg="git merge --no-ff"
 alias mg="merge --no-ff"
 alias srctree='open -a SourceTree .'
@@ -108,6 +107,5 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 
-eval $(thefuck --alias)
 # added by travis gem
 [ -f /Users/petrkorolev/.travis/travis.sh ] && source /Users/petrkorolev/.travis/travis.sh

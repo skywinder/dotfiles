@@ -235,5 +235,6 @@ nnoremap <F3> :let @/ = ""<CR>
 "Colorscheme:
 "colorscheme badwolf
 "colorscheme molokai
+set t_Co=256
 colorscheme gruvbox
 set background=dark    " Setting dark mode

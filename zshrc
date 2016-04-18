@@ -18,6 +18,7 @@ alias mg="merge --no-ff"
 alias srctree='open -a SourceTree .'
 alias hpr='hub pull-request -o'
 alias ghistory='history | grep'
+alias gcad='git commit -v -a -m "commit"'
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 

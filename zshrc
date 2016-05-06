@@ -110,3 +110,5 @@ alias getclip='xclip -selection clipboard -o'
 
 # added by travis gem
 [ -f /Users/petrkorolev/.travis/travis.sh ] && source /Users/petrkorolev/.travis/travis.sh
+
+eval "$(thefuck --alias)"

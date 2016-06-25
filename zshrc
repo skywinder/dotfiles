@@ -52,6 +52,9 @@ export PATH=/usr/local/sbin:$PATH
 #for npm:
 export PATH="$HOME/.node/bin:$PATH"
 
+#for Go lang:
+export GOPATH="$HOME/Projects/go"
+
 # The variable for Theos.
 export THEOS=/opt/theos
 

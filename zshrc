@@ -79,6 +79,10 @@ export LOLCOMMITS_DELAY=1
 export LC_CTYPE=C 
 export LANG=C
 
+# For Android development (adb): http://stackoverflow.com/questions/10303639/adb-command-not-found
+export PATH=~/Library/Android/sdk/tools:$PATH
+export PATH=~/Library/Android/sdk/platform-tools:$PATH
+
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder
 

@@ -17,6 +17,7 @@ alias mg="merge --no-ff"
 alias srctree='open -a SourceTree .'
 alias hpr='hub pull-request -o'
 alias ghistory='history | grep'
+alias gcad='g add . && gca -m' 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -78,6 +79,14 @@ export CODECLIMATE_REPO_TOKEN="ee3d2bb731918eed89b9c2a5a3ee11db0c6a17231d43b6a14
 
 export LOLCOMMITS_DELAY=1
 
+# To make sed works: http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
+export LC_CTYPE=C 
+export LANG=C
+
+# For Android development (adb): http://stackoverflow.com/questions/10303639/adb-command-not-found
+export PATH=~/Library/Android/sdk/tools:$PATH
+export PATH=~/Library/Android/sdk/platform-tools:$PATH
+
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder
 
@@ -113,3 +122,5 @@ alias getclip='xclip -selection clipboard -o'
 
 # added by travis gem
 [ -f /Users/petrkorolev/.travis/travis.sh ] && source /Users/petrkorolev/.travis/travis.sh
+
+eval "$(thefuck --alias)"

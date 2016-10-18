@@ -143,3 +143,7 @@ alias getclip='xclip -selection clipboard -o'
 [ -f /Users/petrkorolev/.travis/travis.sh ] && source /Users/petrkorolev/.travis/travis.sh
 
 eval "$(thefuck --alias)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/skywinder/.sdkman"
+[[ -s "/Users/skywinder/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/skywinder/.sdkman/bin/sdkman-init.sh"

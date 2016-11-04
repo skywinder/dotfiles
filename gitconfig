@@ -14,6 +14,8 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
+	autocrlf = false
+	filemode = false
 
 [difftool "sourcetree"]
 	cmd = meld @LOCAL @REMOTE

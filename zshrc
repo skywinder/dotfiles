@@ -106,6 +106,8 @@ export LANG=C
 export PATH=~/Library/Android/sdk/tools:$PATH
 export PATH=~/Library/Android/sdk/platform-tools:$PATH
 
+# For build Crosswalk (depot_tools):
+export PATH=$PATH: ~/repositories/GitHubProjects/depot_tools
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder
 

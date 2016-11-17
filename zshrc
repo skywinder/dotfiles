@@ -107,7 +107,7 @@ export PATH=~/Library/Android/sdk/tools:$PATH
 export PATH=~/Library/Android/sdk/platform-tools:$PATH
 
 # For build Crosswalk (depot_tools):
-export PATH=$PATH: ~/repositories/GitHubProjects/depot_tools
+export PATH=$PATH:~/bin/depot_tools
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder
 
@@ -140,11 +140,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #for linux clipboards:
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
-
-# added by travis gem
-[ -f /Users/petrkorolev/.travis/travis.sh ] && source /Users/petrkorolev/.travis/travis.sh
-
-eval "$(thefuck --alias)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/skywinder/.sdkman"

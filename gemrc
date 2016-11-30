@@ -1,1 +1,2 @@
 gem: --user-install
+gem: --no-document

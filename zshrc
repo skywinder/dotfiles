@@ -153,3 +153,6 @@ export SDKMAN_DIR="/Users/skywinder/.sdkman"
 #http://stackoverflow.com/a/31250347/1698467
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# added by Anaconda2 4.2.0 installer
+export PATH="/Users/skywinder/anaconda2/bin:$PATH"

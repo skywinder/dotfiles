@@ -1,2 +1,2 @@
 gem: --user-install
-gem: --no-document
+gem: --no-rdoc --no-ri

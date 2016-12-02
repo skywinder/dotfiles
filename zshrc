@@ -111,6 +111,7 @@ export PATH=$PATH:~/bin/depot_tools
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder
 
+ export XWALK_OS_ANDROID=1
 # Explicitly configured $PATH variable
 # PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/local/bin:/opt/local/sbin:/usr/X11/bin
 

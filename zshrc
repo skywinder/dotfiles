@@ -145,3 +145,5 @@ alias getclip='xclip -selection clipboard -o'
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/skywinder/.sdkman"
 [[ -s "/Users/skywinder/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/skywinder/.sdkman/bin/sdkman-init.sh"
+
+export XWALK_OS_ANDROID=1

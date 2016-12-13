@@ -14,6 +14,8 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
+	autocrlf = false
+	filemode = false
 
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
@@ -28,7 +30,7 @@
 [branch]
 	autosetuprebase = always
 [merge]
-	tool = Kaleidoscope
+	tool = meld
 [mergetool "diffmerge"]
 	cmd = diffmerge --merge\n--result=$MERGED $LOCAL $BASE $REMOTE
 	trustExitCode = true
@@ -36,6 +38,7 @@
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
 	tool = Kaleidoscope
+	guitool = meld
 [difftool]
 	prompt = false
 [mergetool "Kaleidoscope"]

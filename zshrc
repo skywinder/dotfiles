@@ -84,7 +84,7 @@ export THEOS=/opt/theos
 #Hello, vim!
 export EDITOR=vim
 #Git vim editor with insert mode at start:
-export GIT_EDITOR='vim +startinsert'
+export GIT_EDITOR='vim +startinsert!'
 
 #to coorect working pods:
 #see: https://github.com/CocoaPods/guides.cocoapods.org/issues/26

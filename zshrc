@@ -84,7 +84,7 @@ export THEOS=/opt/theos
 #Hello, vim!
 export EDITOR=vim
 #Git vim editor with insert mode at start:
-export GIT_EDITOR='vim +startinsert'
+export GIT_EDITOR='vim +startinsert!'
 
 #to coorect working pods:
 #see: https://github.com/CocoaPods/guides.cocoapods.org/issues/26
@@ -108,7 +108,7 @@ export PATH=~/Library/Android/sdk/tools:$PATH
 export PATH=~/Library/Android/sdk/platform-tools:$PATH
 
 # For build Crosswalk (depot_tools):
-export PATH=$PATH: ~/repositories/GitHubProjects/depot_tools
+export PATH=~/bin/depot_tools:$PATH
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder
 
@@ -150,3 +150,10 @@ eval "$(thefuck --alias)"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/skywinder/.sdkman"
 [[ -s "/Users/skywinder/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/skywinder/.sdkman/bin/sdkman-init.sh"
+
+#http://stackoverflow.com/a/31250347/1698467
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# added by Anaconda2 4.2.0 installer
+export PATH="/Users/skywinder/anaconda2/bin:$PATH"

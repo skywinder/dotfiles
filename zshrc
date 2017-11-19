@@ -70,7 +70,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
 #for npm:
-export PATH="$HOME/.node/bin:$PATH"
+export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"
 
 #for Go lang:
 export GOPATH="$HOME/Projects/go"

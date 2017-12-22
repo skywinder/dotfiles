@@ -69,8 +69,11 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 #for brew:
 export PATH=/usr/local/sbin:$PATH
 
+#for installation z:
+. /usr/local/etc/profile.d/z.sh
+
 #for npm:
-export PATH="$HOME/.node/bin:$PATH"
+export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"
 
 #for Go lang:
 export GOPATH="$HOME/Projects/go"

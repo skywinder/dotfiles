@@ -78,12 +78,7 @@ export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"
 #for Go lang:
 export GOPATH="$HOME/Projects/go"
 export PATH=$GOPATH/bin:$PATH
-
-# The variable for Theos.
-export THEOS=/opt/theos
-
-# Sublime as default text editor
-#export EDITOR="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -w"
+#
 #Hello, vim!
 export EDITOR=vim
 #Git vim editor with insert mode at start:
@@ -106,12 +101,6 @@ export LOLCOMMITS_DELAY=1
 export LC_CTYPE=C 
 export LANG=C
 
-# For Android development (adb): http://stackoverflow.com/questions/10303639/adb-command-not-found
-export PATH=~/Library/Android/sdk/tools:$PATH
-export PATH=~/Library/Android/sdk/platform-tools:$PATH
-
-# For build Crosswalk (depot_tools):
-export PATH=~/bin/depot_tools:$PATH
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder
 

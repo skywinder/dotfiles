@@ -55,7 +55,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow git-hubflow github ruby rvm rails gem heroku brew pod osx sublime npm node thefuck)
+plugins=(git git-flow git-hubflow github ruby rvm rails gem heroku brew pod osx sublime npm node thefuck z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,7 +70,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
 #for installation z:
-. /usr/local/etc/profile.d/z.sh
+#. /usr/local/etc/profile.d/z.sh
 
 #for npm:
 export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"

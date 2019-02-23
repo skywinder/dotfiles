@@ -5,7 +5,9 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+#
 ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
 
 # Customize aliases to your needs:
 alias psg="ps -A | grep"
@@ -55,7 +57,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow git-hubflow github ruby rvm rails gem heroku brew pod osx sublime npm node thefuck z tmux rsync history)
+plugins=(git git-flow git-hubflow github ruby rvm rails gem heroku brew pod osx sublime npm node thefuck z tmux rsync history zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

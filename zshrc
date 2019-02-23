@@ -97,8 +97,6 @@ export CHANGELOG_GITHUB_TOKEN="8587bb22f6bf125454768a4a19dbcc774ea68d48"
 export CODECLIMATE_REPO_TOKEN="ee3d2bb731918eed89b9c2a5a3ee11db0c6a17231d43b6a14e70f1eb6c811f9a"
 export GH_AUTH_TOKEN="8b1506f31dbd3600b089b233513995324d1a24ad"
 
-export LOLCOMMITS_DELAY=1
-
 # To make sed works: http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
 export LC_CTYPE=C 
 export LANG=C

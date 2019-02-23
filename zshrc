@@ -124,6 +124,18 @@ qfind () {
     return 0
 }
 
+### by Poma
+idiff() {
+    # zsh throws error on idea start
+    bash -c "'/Applications/IntelliJ IDEA.app/Contents/MacOS/idea' diff '$(realpath $1)' '$(realpath $2)'"
+}
+
+idea() {
+    "/Applications/IntelliJ IDEA.app/Contents/MacOS/idea" "$(pwd)"
+}
+
+#
+#
 # # Custom exports
 # ## Set EDITOR to /usr/bin/vim if Vim is installed
 # if [ -f /usr/bin/vim ]; then

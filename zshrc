@@ -81,6 +81,12 @@ export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"
 #for Go lang:
 export GOPATH="$HOME/Projects/go"
 export PATH=$GOPATH/bin:$PATH
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# added by recomendation after `brew install ruby`
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 #
 #Hello, vim!
 export EDITOR=vim
@@ -93,10 +99,6 @@ export LC_ALL="en_US.UTF-8"
 #and others locale vars:
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
-
-export CHANGELOG_GITHUB_TOKEN="8587bb22f6bf125454768a4a19dbcc774ea68d48"
-export CODECLIMATE_REPO_TOKEN="ee3d2bb731918eed89b9c2a5a3ee11db0c6a17231d43b6a14e70f1eb6c811f9a"
-export GH_AUTH_TOKEN="8b1506f31dbd3600b089b233513995324d1a24ad"
 
 # To make sed works: http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
 export LC_CTYPE=C 
@@ -131,8 +133,6 @@ qfind () {
 #     export EDITOR=/usr/bin/vim
 # fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 #for linux clipboards:
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
@@ -150,14 +150,9 @@ export SDKMAN_DIR="/Users/skywinder/.sdkman"
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# added by Anaconda2 4.2.0 installer
-export PATH="/Users/skywinder/anaconda2/bin:$PATH"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# added by recomendation after `brew install ruby`
-export PATH="/usr/local/opt/ruby/bin:$PATH"

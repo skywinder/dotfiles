@@ -238,3 +238,8 @@ nnoremap <F3> :let @/ = ""<CR>
 "colorscheme molokai
 colorscheme gruvbox
 set background=dark    " Setting dark mode
+
+
+"Forcing vimdiff to wrap lines
+"https://stackoverflow.com/questions/16840433/forcing-vimdiff-to-wrap-lines
+au VimEnter * if &diff | execute 'windo set wrap' | endif

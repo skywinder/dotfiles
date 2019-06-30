@@ -11,6 +11,7 @@
 	ft = fetch
 	ps = push -u origin --all
 	pl = pull
+	d = difftool
 
 [core]
 	excludesfile = ~/.gitignore_global
@@ -37,7 +38,7 @@
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
-	tool = Kaleidoscope
+	tool = vimdiff
 	guitool = meld
 [difftool]
 	prompt = false

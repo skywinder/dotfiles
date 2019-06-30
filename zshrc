@@ -87,6 +87,12 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # added by recomendation after `brew install ruby`
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
+#vs code
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 #
 #Hello, vim!
 export EDITOR=vim

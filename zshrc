@@ -90,9 +90,6 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-#vs code
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
 #
 #Hello, vim!
 export EDITOR=vim
@@ -143,14 +140,7 @@ qfind () {
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 
-# added by travis gem
-[ -f /Users/petrkorolev/.travis/travis.sh ] && source /Users/petrkorolev/.travis/travis.sh
-
-eval "$(thefuck --alias)"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/skywinder/.sdkman"
-[[ -s "/Users/skywinder/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/skywinder/.sdkman/bin/sdkman-init.sh"
+#eval "$(thefuck --alias)"
 
 #http://stackoverflow.com/a/31250347/1698467
 export RBENV_ROOT=/usr/local/var/rbenv

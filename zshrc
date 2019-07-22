@@ -128,7 +128,11 @@ qfind () {
     return 0
 }
 
-#
+# cd after clone: https://unix.stackexchange.com/questions/97920/how-to-cd-automatically-after-git-clone
+funciton gccd() {
+   git clone "$1" && cd "$(basename "$1" .git)"
+}
+
 #
 # # Custom exports
 # ## Set EDITOR to /usr/bin/vim if Vim is installed

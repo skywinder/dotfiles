@@ -66,6 +66,9 @@ source $ZSH/oh-my-zsh.sh
 # So, next string probably not needed..
 export PATH=$PATH:$HOME/bin
 
+# https://docs.python-guide.org/starting/install3/osx/#install3-osx
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 # For macports:
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 

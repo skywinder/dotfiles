@@ -31,14 +31,14 @@
 [branch]
 	autosetuprebase = always
 [merge]
-	tool = meld
+	tool = diffmerge
 [mergetool "diffmerge"]
-	cmd = diffmerge --merge\n--result=$MERGED $LOCAL $BASE $REMOTE
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
 	trustExitCode = true
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
-	tool = vimdiff
+	tool = diffmerge
 	guitool = meld
 [difftool]
 	prompt = false
@@ -47,6 +47,7 @@
 	trustExitCode = true
 [mergetool]
 	prompt = false
+	keepBackup = false
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -55,3 +56,5 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"

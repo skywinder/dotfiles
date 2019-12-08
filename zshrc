@@ -93,6 +93,9 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# gem
+export PATH=$PATH:/usr/local/lib/ruby/gems/2.6.0/bin
+
 #
 #Hello, vim!
 export EDITOR=vim
@@ -117,6 +120,9 @@ export LANG=C
 # For Android development (adb): http://stackoverflow.com/questions/10303639/adb-command-not-found
 export PATH=~/Library/Android/sdk/tools:$PATH
 export PATH=~/Library/Android/sdk/platform-tools:$PATH
+
+
+source ~/.env
 
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder

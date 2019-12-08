@@ -44,6 +44,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'sjl/badwolf'
 Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tomlion/vim-solidity'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -236,3 +238,8 @@ nnoremap <F3> :let @/ = ""<CR>
 "colorscheme molokai
 colorscheme gruvbox
 set background=dark    " Setting dark mode
+
+
+"Forcing vimdiff to wrap lines
+"https://stackoverflow.com/questions/16840433/forcing-vimdiff-to-wrap-lines
+au VimEnter * if &diff | execute 'windo set wrap' | endif

@@ -56,3 +56,5 @@
 	required = true
 [commit]
 	template = /Users/pk/.stCommitMsg
+[mergetool]
+	keepBackup = false

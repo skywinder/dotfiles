@@ -29,6 +29,10 @@ alias srctree='open -a SourceTree .'
 alias hpr='hub pull-request -o'
 alias ghistory='history | grep'
 alias gcad='g add . && gca -m'
+
+# Now you can 'git kraken'!
+alias kraken='open -na "GitKraken" --args -p $(git rev-parse --show-toplevel)'
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -188,3 +192,10 @@ eval "$(thefuck --alias)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+
+## Open GitKraken using the current repo directory.
+kraken () {
+	~/Applications/GitKraken.app/Contents/MacOS/GitKraken -p $(pwd)
+}
+

@@ -31,7 +31,7 @@ alias ghistory='history | grep'
 alias gcad='g add . && gca -m'
 
 # Now you can 'git kraken'!
-alias kraken='open -na "GitKraken" --args -p $(git rev-parse --show-toplevel)'
+alias kraken='open -na "GitKraken" --args -p "$(git rev-parse --show-toplevel)"'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

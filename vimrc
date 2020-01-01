@@ -202,6 +202,11 @@ set clipboard=unnamed
 "Increment search:
 :set incsearch
 
+"highllight matching braces:
+"https://vim.fandom.com/wiki/Moving_to_matching_braces
+:set showmatch
+:set matchtime=3
+
 "------------------------------------------------------------
 " Mappings {{{1
 "

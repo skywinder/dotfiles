@@ -1,6 +1,7 @@
 [user]
 	name = Petr Korolev
 	email = sky4winder@gmail.com
+	signingkey = D6EEEF32FDC971EC
 [alias]
 	# Aliases
 	ch = checkout

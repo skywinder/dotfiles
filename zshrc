@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -6,7 +13,8 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME=powerlevel10k/powerlevel10k
 #ZSH_THEME="agnoster"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 
@@ -20,7 +28,11 @@ alias mg="merge --no-ff"
 alias srctree='open -a SourceTree .'
 alias hpr='hub pull-request -o'
 alias ghistory='history | grep'
-alias gcad='g add . && gca -m' 
+alias gcad='g add . && gca -m'
+
+# Now you can 'git kraken'!
+alias kraken='open -na "GitKraken" --args -p "$(git rev-parse --show-toplevel)"'
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -93,6 +105,9 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# gem
+export PATH=$PATH:/usr/local/lib/ruby/gems/2.6.0/bin
+
 #
 #Hello, vim!
 export EDITOR=vim
@@ -107,8 +122,19 @@ export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
 # To make sed works: http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
-export LC_CTYPE=C 
+export LC_CTYPE=C
 export LANG=C
+
+# To make sed works: http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
+export LC_CTYPE=C
+export LANG=C
+
+# For Android development (adb): http://stackoverflow.com/questions/10303639/adb-command-not-found
+export PATH=~/Library/Android/sdk/tools:$PATH
+export PATH=~/Library/Android/sdk/platform-tools:$PATH
+
+
+source ~/.env
 
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
 #####  skywinder
@@ -159,3 +185,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+eval "$(thefuck --alias)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

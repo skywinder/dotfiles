@@ -2,3 +2,6 @@ oh-my-zsh/
 vim/.netrwhist
 chef/
 private
+.gitsecret/keys/random_seed
+!*.secret
+env

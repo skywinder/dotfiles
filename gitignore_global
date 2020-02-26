@@ -184,3 +184,6 @@ build/
 
 # add Visual studio configs to gitignore
 .vscode
+
+# do not track .env:
+.env

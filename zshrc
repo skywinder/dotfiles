@@ -102,6 +102,10 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # added by recomendation after `brew install ruby`
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
+# support chruby
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 

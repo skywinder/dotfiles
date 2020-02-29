@@ -32,7 +32,7 @@ alias gcad='g add . && gca -m'
 
 # Thanks, @KrauseFx, for inspiration!
 # https://github.com/KrauseFx/dotfiles/blob/master/.zshrc
-alias zshrc="code ~/.zshrc"
+alias zshrc="vim ~/.zshrc"
 # what ! means?🤔
 #alias bundle!="bundle install && rake install"
 alias be="bundle exec"
@@ -47,7 +47,7 @@ alias ri="rake install"
 #alias gpush="git push"
 #alias gbranch="git checkout -b"
 #alias gclone="git clone"
-alias s="code ."
+alias c="code ."
 alias o="open ."
 # what is up? 🤔 
 #alias r="up && be rubocop -a"

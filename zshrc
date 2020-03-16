@@ -176,10 +176,16 @@ qfind () {
 
 # git quick update 
 # thanks to https://github.com/nikitavoloboev/dotfiles
+# if no commit message is necessary.
 gacp() {
     git add .
     git commit . -m 'update'
     git push
+}
+
+# A lot safer than to rm -rf files as you can always check out ~/.Trash in cases of emergency or mistakes.
+re(){
+  mv "$1" ~/.Trash
 }
 
 # cd after clone: https://unix.stackexchange.com/questions/97920/how-to-cd-automatically-after-git-clone

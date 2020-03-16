@@ -33,24 +33,14 @@ alias gcad='g add . && gca -m'
 # Thanks, @KrauseFx, for inspiration!
 # https://github.com/KrauseFx/dotfiles/blob/master/.zshrc
 alias zshrc="vim ~/.zshrc"
-# what ! means?🤔
 #alias bundle!="bundle install && rake install"
 alias be="bundle exec"
 alias bi="bundle install"
 alias bu="bundle update"
 alias ri="rake install"
-# they are defauls in zsh (oh-my-zsh), don't know why there is duplicates
-#alias gc="git checkout"
-#alias gco="git checkout"
-#alias gcm="git checkout master"
-#alias gpull="git pull"
-#alias gpush="git push"
-#alias gbranch="git checkout -b"
-#alias gclone="git clone"
 alias c="code ."
+alias i="idea ."
 alias o="open ."
-# what is up? 🤔 
-#alias r="up && be rubocop -a"
 
 # Now you can 'git kraken'!
 alias kraken='open -na "GitKraken" --args -p "$(git rev-parse --show-toplevel)"'

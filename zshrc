@@ -149,7 +149,6 @@ export LANG=C
 export PATH=~/Library/Android/sdk/tools:$PATH
 export PATH=~/Library/Android/sdk/platform-tools:$PATH
 
-
 source ~/.env
 
 #####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
@@ -177,7 +176,7 @@ qfind () {
 
 # git quick update 
 # thanks to https://github.com/nikitavoloboev/dotfiles
- ggs() {
+gacp() {
     git add .
     git commit . -m 'update'
     git push

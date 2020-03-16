@@ -173,6 +173,16 @@ qfind () {
     return 0
 }
 
+
+
+# git quick update 
+# thanks to https://github.com/nikitavoloboev/dotfiles
+ ggs() {
+    git add .
+    git commit . -m 'update'
+    git push
+}
+
 # cd after clone: https://unix.stackexchange.com/questions/97920/how-to-cd-automatically-after-git-clone
 funciton gccd() {
    git clone "$1" && cd "$(basename "$1" .git)"

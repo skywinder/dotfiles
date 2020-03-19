@@ -20,3 +20,6 @@ defaults write com.apple.dock tilesize -int 1 && killall Dock
 
 # Install all from https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize suspicious-package quicklookase qlvideo
+
+#### https://github.com/tborychowski/slack-nord-theme
+### - run install.sh to make slack dark

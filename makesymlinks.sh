@@ -6,6 +6,9 @@
 
 ########## Variables
 
+
+# TODO: thinks about migration to https://github.com/anishathalye/dotbot
+
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 

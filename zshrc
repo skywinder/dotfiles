@@ -109,22 +109,26 @@ export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"
 export GOPATH="$HOME/Projects/go"
 export PATH=$GOPATH/bin:$PATH
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 # added by recomendation after `brew install ruby`
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # support chruby
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+#source /usr/local/share/chruby/chruby.sh
+#source /usr/local/share/chruby/auto.sh
 
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# gem
-export PATH=$PATH:/usr/local/lib/ruby/gems/2.6.0/bin
+#Ruby + gem
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$HOME/.gem
 
-#
+export RUBYPATH="/usr/local/lib/ruby/gems/2.7.0"
+export PATH=$RUBYPATH/bin:$PATH
+
+
+#-----------
+
 #Hello, vim!
 export EDITOR=vim
 #Git vim editor with insert mode at start:

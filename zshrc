@@ -123,6 +123,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export GEM_HOME=$HOME/.gem
 export GEM_PATH=$HOME/.gem
 
+export PATH=$GEM_HOME/bin:$PATH
+
 export RUBYPATH="/usr/local/lib/ruby/gems/2.7.0"
 export PATH=$RUBYPATH/bin:$PATH
 

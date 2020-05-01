@@ -66,3 +66,6 @@
 	trustExitCode = true
 [commit]
 	template = /Users/pk/.stCommitMsg
+	gpgsign = false
+[gpg]
+	program = /usr/local/bin/gpg

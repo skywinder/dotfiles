@@ -199,6 +199,12 @@ funciton gccd() {
    git clone "$1" && cd "$(basename "$1" .git)"
 }
 
+# Fast clear Derived Data folder for Xcode
+cleandd(){
+rm -rf ~/Library/Developer/Xcode/DerivedData
+echo "Removed all derived data."
+}
+
 #
 # # Custom exports
 # ## Set EDITOR to /usr/bin/vim if Vim is installed

@@ -227,8 +227,23 @@ nnoremap <CR> :noh<CR><CR>
 :map <C-X> <ESC>:x<CR>
 :imap <C-X> <ESC>:x<CR>
 
-" Quick exit from insert mode ( http://vim.wikia.com/wiki/Avoid_the_escape_key)
-inoremap jj <ESC>
+"https://github.com/mutewinter/dot_vim/blob/master/mappings.vim
+" Scroll larger amounts with gj / gk
+nnoremap gj 15gjzz
+nnoremap gk 15gkzz
+vnoremap gj 15gjzz
+vnoremap gk 15gkzz
+
+" ---------------
+" Insert Mode Mappings
+" ---------------
+
+" Let's make escape better, together.
+inoremap jk <Esc>
+inoremap JK <Esc>
+inoremap Jk <Esc>
+inoremap jK <Esc>
+
 
 " Insert newline without entering insert mode
 nmap <S-Enter> O<Esc>

@@ -5,3 +5,4 @@ private
 .gitsecret/keys/random_seed
 !*.secret
 env
+vim/bundle

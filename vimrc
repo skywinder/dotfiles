@@ -46,6 +46,7 @@ Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tomlion/vim-solidity'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

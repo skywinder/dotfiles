@@ -76,13 +76,13 @@
       vim_shell               # vim shell indicator (:sh)
       # midnight_commander    # midnight commander shell (https://midnight-commander.org/)
       # vpn_ip                # virtual private network indicator
-      # ram                   # free RAM
-      # load                  # CPU load
+       ram                   # free RAM
+       load                  # CPU load
       # time                  # current time
-      # public_ip             # public IP address
+       public_ip             # public IP address
       # proxy                 # system-wide http/https/ftp proxy
-      # battery               # internal battery
-      # example               # example user-defined segment (see prompt_example function below)
+       battery               # internal battery
+       #example               # example user-defined segment (see prompt_example function below)
   )
 
   # Basic style options that define the overall look of your prompt. You probably don't want to

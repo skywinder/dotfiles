@@ -39,6 +39,7 @@
       dir                     # current directory
       vcs                     # git status
       prompt_char             # prompt symbol
+      docker                  # docker staus 
   )
 
   # The list of segments shown on the right. Fill it with less important segments.
@@ -896,6 +897,12 @@
   # Type `p10k help segment` for documentation and a more sophisticated example.
   function prompt_example() {
     p10k segment -f 208 -i '⭐' -t 'hello, %n'
+  }
+
+  function prompt_docker() {
+    if [[ -n "$DOCKER_MACHINE_NAME" ]]; then
+      p10k segment -f 087 -i '🐳' -t "$DOCKER_MACHINE_NAME"
+    fi
   }
 
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job

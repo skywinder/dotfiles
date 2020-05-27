@@ -25,7 +25,7 @@ alias lsa="lsa | grep"
 alias cpath="pwd | pbcopy"
 alias gmg="git merge --no-ff"
 alias mg="merge --no-ff"
-alias srctree='open -a SourceTree .'
+alias srctree='open -a SourceTree "$(git rev-parse --show-toplevel)"'
 alias hpr='hub pull-request -o'
 alias ghistory='history | grep'
 alias gcad='g add . && gca -m'
@@ -38,12 +38,21 @@ alias be="bundle exec"
 alias bi="bundle install"
 alias bu="bundle update"
 alias ri="rake install"
-alias c="code ."
-alias i="idea ."
-alias o="open ."
+alias c="code $(git rev-parse --show-toplevel)"
+alias i="idea $(git rev-parse --show-toplevel)"
+alias o="open $(git rev-parse --show-toplevel)"
+alias a="atom $(git rev-parse --show-toplevel)"
 
 # Now you can 'git kraken'!
 alias kraken='open -na "GitKraken" --args -p "$(git rev-parse --show-toplevel)"'
+
+
+# Docker aliases:
+alias dm-ssh='docker-machine ssh `docker-machine active`'
+alias dm-ip='docker-machine ip `docker-machine active`'
+alias dm-env='docker-machine env `docker-machine active`'
+alias dm-inspect='docker-machine inspect `docker-machine active`'
+alias dm-config='docker-machine config `docker-machine active`'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -199,6 +208,13 @@ funciton gccd() {
    git clone "$1" && cd "$(basename "$1" .git)"
 }
 
+# mdir and cd:
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
+
 # Fast clear Derived Data folder for Xcode
 cleandd(){
 rm -rf ~/Library/Developer/Xcode/DerivedData
@@ -240,3 +256,33 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 HEROKU_AC_ZSH_SETUP_PATH=/Users/pk/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+## safe rm: brew install safe-rm
+alias rm='safe-rm'
+#alias rm="rm_i"
+
+#function rm_i(){
+#RM_BIN=safe-rm # you can replace it with regular rm if you like
+
+#args=""
+#files=""
+#argsDone=0 # to make sure arguments are before the files
+
+#for var in "$@"
+#do
+    #if [[ $var == \-* ]] ; then
+        #if [ $argsDone -eq 1 ] ; then
+            #$RM_BIN # just to show the usage of rm
+            #return
+        #fi
+        #args+=" $var"
+    #else
+        #argsDone=1
+        #files+=" $var"
+    #fi
+#done
+
+#args+=" -i" # Put -i at the end (so rm -rf will not ignore it)
+
+#$RM_BIN $args $files
+#}

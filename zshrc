@@ -182,7 +182,7 @@ fi
 # fi
 
 # # qfind - used to quickly find files that contain a string in a directory
-qfind () {
+function qfind () {
     find . -exec grep -l -s $1 {} \;
     return 0
 }
@@ -192,14 +192,14 @@ qfind () {
 # git quick update 
 # thanks to https://github.com/nikitavoloboev/dotfiles
 # if no commit message is necessary.
-gacp() {
+function gacp() {
     git add .
     git commit . -m 'update'
     git push
 }
 
 # A lot safer than to rm -rf files as you can always check out ~/.Trash in cases of emergency or mistakes.
-re(){
+function re(){
   mv "$1" ~/.Trash
 }
 
@@ -209,18 +209,44 @@ funciton gccd() {
 }
 
 # mdir and cd:
-mkcdir ()
+function mkcdir ()
 {
     mkdir -p -- "$1" &&
       cd -P -- "$1"
 }
 
+# bk_script
+function bk()
+{
+    cp $1 $1.bk
+}
+
+function restore()
+{
+    var=$1
+    orig=${var%.bk}
+    cp $1 $orig
+}
+
+function bkv()
+{
+    bk $1
+    vim $1
+}
+
 # Fast clear Derived Data folder for Xcode
-cleandd(){
+function cleandd(){
 rm -rf ~/Library/Developer/Xcode/DerivedData
 echo "Removed all derived data."
 }
 
+function speedlog()
+{
+    echo "\n----\n" >> ~/tmp/speed.log
+    date >> ~/tmp/speed.log
+    speedtest | tee -a  ~/tmp/speed.log
+    echo "\n----" >> ~/tmp/speed.log
+}
 #
 # # Custom exports
 # ## Set EDITOR to /usr/bin/vim if Vim is installed

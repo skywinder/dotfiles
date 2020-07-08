@@ -100,7 +100,11 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:$HOME/bin
 
 # https://docs.python-guide.org/starting/install3/osx/#install3-osx
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="~/Library/Python/3.7:$PATH"
+alias python=/usr/local/bin/python3.7
+
+#https://www.jetbrains.com/help/pycharm/pipenv.html#
+export PATH="$PATH:/Users/jetbrains/.local/bin"
 
 # For macports:
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
@@ -246,6 +250,7 @@ function speedlog()
     date >> ~/tmp/speed.log
     speedtest | tee -a  ~/tmp/speed.log
     echo "\n----" >> ~/tmp/speed.log
+    echo "data stored in ~/tmp/speed.log"
 }
 #
 # # Custom exports

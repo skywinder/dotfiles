@@ -253,6 +253,9 @@ nmap <CR> o<Esc>
 "To clear the last used search pattern:
 nnoremap <F3> :let @/ = ""<CR>
 
+" for sudo save https://stackoverflow.com/questions/14948441/vim-cant-save-file-e212
+cmap w!! %!sudo tee %
+
 "------------------------------------------------------------
 "Colorscheme:
 "colorscheme badwolf
@@ -260,6 +263,9 @@ nnoremap <F3> :let @/ = ""<CR>
 colorscheme gruvbox
 set background=dark    " Setting dark mode
 
+" https://stackoverflow.com/questions/2514445/turning-off-auto-indent-when-pasting-text-into-vim
+" set shortcut for paste mode to F4
+set pastetoggle=<F4>
 
 "Forcing vimdiff to wrap lines
 "https://stackoverflow.com/questions/16840433/forcing-vimdiff-to-wrap-lines

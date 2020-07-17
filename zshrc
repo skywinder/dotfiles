@@ -38,10 +38,10 @@ alias be="bundle exec"
 alias bi="bundle install"
 alias bu="bundle update"
 alias ri="rake install"
-alias c="code $(git rev-parse --show-toplevel)"
-alias i="idea $(git rev-parse --show-toplevel)"
-alias o="open $(git rev-parse --show-toplevel)"
-alias a="atom $(git rev-parse --show-toplevel)"
+alias c='code "$(git rev-parse --show-toplevel)"'
+alias i='idea "$(git rev-parse --show-toplevel)"'
+alias o='open "$(git rev-parse --show-toplevel)"'
+alias a='atom "$(git rev-parse --show-toplevel)"'
 
 # Now you can 'git kraken'!
 alias kraken='open -na "GitKraken" --args -p "$(git rev-parse --show-toplevel)"'
@@ -53,6 +53,9 @@ alias dm-ip='docker-machine ip `docker-machine active`'
 alias dm-env='docker-machine env `docker-machine active`'
 alias dm-inspect='docker-machine inspect `docker-machine active`'
 alias dm-config='docker-machine config `docker-machine active`'
+
+# env files when start sudo:
+alias sudo='sudo -E'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -193,7 +196,7 @@ function qfind () {
 
 
 
-# git quick update 
+# git quick update
 # thanks to https://github.com/nikitavoloboev/dotfiles
 # if no commit message is necessary.
 function gacp() {
@@ -219,12 +222,14 @@ function mkcdir ()
       cd -P -- "$1"
 }
 
-# bk_script
+# bk_script - make a copy of file with bk extension
 function bk()
 {
     cp $1 $1.bk
+    echo made a copy of file: $1.bk
 }
 
+# restore file after bk function
 function restore()
 {
     var=$1
@@ -232,6 +237,7 @@ function restore()
     cp $1 $orig
 }
 
+# backup file and open in vim
 function bkv()
 {
     bk $1
@@ -244,6 +250,7 @@ rm -rf ~/Library/Developer/Xcode/DerivedData
 echo "Removed all derived data."
 }
 
+#simple werapper for speedtest to store output
 function speedlog()
 {
     echo "\n----\n" >> ~/tmp/speed.log
@@ -251,6 +258,19 @@ function speedlog()
     speedtest | tee -a  ~/tmp/speed.log
     echo "\n----" >> ~/tmp/speed.log
     echo "data stored in ~/tmp/speed.log"
+}
+
+
+# Simplified copy scrips: send filename and destination only.   echo "expercted 2 parameters: filename and path"
+# usage: cpf file path
+function cpf()
+{
+    if [ "$1" != "" ] && [ "$2" != "" ]; then
+        echo "cp ./${1} ${2}/${1}"
+        cp "./${1} ${2}/${1}"
+    else
+        echo "expercted 2 parameters: filename and path"
+    fi
 }
 #
 # # Custom exports

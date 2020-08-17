@@ -337,3 +337,6 @@ alias rm='safe-rm'
 
 #$RM_BIN $args $files
 #}
+
+# ls after cd: (https://vas3k.club/question/3817/)
+cd() { builtin cd $@ && ls -lh }

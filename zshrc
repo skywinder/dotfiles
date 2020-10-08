@@ -18,6 +18,9 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 #ZSH_THEME="spaceship"
 #ZSH_THEME="agnoster"
 
+#to use ripgrep:
+unalias rg
+
 # Customize aliases to your needs:
 alias psg="ps -A | grep"
 alias lsa="ls -a"
@@ -29,6 +32,7 @@ alias srctree='open -a SourceTree "$(git rev-parse --show-toplevel)"'
 alias hpr='hub pull-request -o'
 alias ghistory='history | grep'
 alias gcad='g add . && gca -m'
+alias cmd= 'mkcddir'
 
 # Thanks, @KrauseFx, for inspiration!
 # https://github.com/KrauseFx/dotfiles/blob/master/.zshrc
@@ -104,7 +108,7 @@ export PATH=$PATH:$HOME/bin
 
 # https://docs.python-guide.org/starting/install3/osx/#install3-osx
 export PATH="~/Library/Python/3.7:$PATH"
-alias python=/usr/local/bin/python3.7
+alias python=python3
 
 #https://www.jetbrains.com/help/pycharm/pipenv.html#
 export PATH="$PATH:/Users/jetbrains/.local/bin"

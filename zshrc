@@ -18,9 +18,6 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 #ZSH_THEME="spaceship"
 #ZSH_THEME="agnoster"
 
-#to use ripgrep:
-unalias rg
-
 # Customize aliases to your needs:
 alias psg="ps -A | grep"
 alias lsa="ls -a"
@@ -98,7 +95,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow git-hubflow github ruby rvm rails gem heroku brew pod osx npm node thefuck z tmux rsync history zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker  docker-compose  docker-machine)
+plugins=(git git-flow git-hubflow github ruby rvm gem heroku brew pod osx npm node thefuck z tmux rsync history zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker  docker-compose  docker-machine)
 
 source $ZSH/oh-my-zsh.sh
 

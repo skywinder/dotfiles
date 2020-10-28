@@ -102,10 +102,14 @@ source $ZSH/oh-my-zsh.sh
 # My actual PATH = /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin
 # So, next string probably not needed..
 export PATH=$PATH:$HOME/bin
-
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.8/bin"
 # https://docs.python-guide.org/starting/install3/osx/#install3-osx
+
 export PATH="~/Library/Python/3.7:$PATH"
 alias python=python3
+
+#add pip alias as well
+alias pip=pip3
 
 #https://www.jetbrains.com/help/pycharm/pipenv.html#
 export PATH="$PATH:/Users/jetbrains/.local/bin"

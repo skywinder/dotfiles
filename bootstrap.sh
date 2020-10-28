@@ -16,5 +16,8 @@ wget https://raw.githubusercontent.com/skywinder/dotfiles/master/zshrc_linux -O 
 #Vim and Vundle
 wget https://raw.githubusercontent.com/skywinder/dotfiles/master/vimrc -O ~/.vimrc
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+#download plug:
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+vim +PlugInstall +qall

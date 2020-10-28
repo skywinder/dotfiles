@@ -13,7 +13,7 @@ chsh -s $(which zsh)
 # My zsh configs
 wget https://raw.githubusercontent.com/skywinder/dotfiles/master/zshrc_linux -O ~/.zshrc
 
-#Vim and Vundle
+#vim and plug
 wget https://raw.githubusercontent.com/skywinder/dotfiles/master/vimrc -O ~/.vimrc
 
 #download plug:

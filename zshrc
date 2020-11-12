@@ -1,35 +1,21 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# Path to your oh-my-zsh installation.
+export ZSH="~/.oh-my-zsh"
 
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME=powerlevel10k/powerlevel10k
-#ZSH_THEME="spaceship"
-#ZSH_THEME="agnoster"
-
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Which plugins would you like to load?
@@ -37,89 +23,29 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow git-hubflow github ruby gem heroku brew pod osx npm node thefuck z tmux rsync history zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker  docker-compose  docker-machine)
+plugins=(git git-flow git-hubflow npm node tmux rsync history zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker  docker-compose  docker-machine)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# My actual PATH = /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin
-# So, next string probably not needed..
-export PATH=$PATH:$HOME/bin
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.8/bin"
-# https://docs.python-guide.org/starting/install3/osx/#install3-osx
-
-export PATH="~/Library/Python/3.7:$PATH"
-alias python=python3
-
-#add pip alias as well
-alias pip=pip3
-
-#https://www.jetbrains.com/help/pycharm/pipenv.html#
-export PATH="$PATH:/Users/jetbrains/.local/bin"
-
-# For macports:
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-
-#for brew:
-export PATH=/usr/local/sbin:$PATH
-
-#for installation z:
-#. /usr/local/etc/profile.d/z.sh
-
-#for npm:
-export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"
-
-#for Go lang:
-export GOPATH="$HOME/Projects/go"
-export PATH=$GOPATH/bin:$PATH
-
-# added by recomendation after `brew install ruby`
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-
-# support chruby
-#source /usr/local/share/chruby/chruby.sh
-#source /usr/local/share/chruby/auto.sh
-
-# cargo
-export PATH="$HOME/.cargo/bin:$PATH"
-
-#Ruby + gem
-export GEM_HOME=$HOME/.gem
-export GEM_PATH=$HOME/.gem
-
-export PATH=$GEM_HOME/bin:$PATH
-
-export RUBYPATH="/usr/local/lib/ruby/gems/2.7.0"
-export PATH=$RUBYPATH/bin:$PATH
-
-
-#-----------
-
 # Hello, vim!
 export EDITOR=vim
-#Git vim editor with insert mode at start:
+
+# Git vim editor with insert mode at start:
 export GIT_EDITOR='vim +startinsert!'
 
-#to correct working pods:
-#see: https://github.com/CocoaPods/guides.cocoapods.org/issues/26
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
 # and others locale vars:
+export LC_ALL="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
-
-# To make sed works: http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
-export LC_CTYPE=C
-export LANG=C
-
-# To make sed works: http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
-export LC_CTYPE=C
-export LANG=C
 
 # load local env variables
 source ~/.env
 
-#  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo.
+#  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo
 
 # ls after cd: (https://vas3k.club/question/3817/)
 cd() { builtin cd $@ && ls -lh }
@@ -128,6 +54,7 @@ cd() { builtin cd $@ && ls -lh }
 if [ -f $HOME/.private ]; then
    source $HOME/.private
 fi
+
 
 ## Helper functions
 
@@ -199,80 +126,11 @@ function cpf()
     fi
 }
 
-# mac specific:
-# Fast clear Derived Data folder for Xcode
-function cleandd(){
-rm -rf ~/Library/Developer/Xcode/DerivedData
-echo "Removed all derived data."
-}
 
-#simple werapper for speedtest to store output
-function speedlog()
-{
-    echo "\n----\n" >> ~/tmp/speed.log
-    date >> ~/tmp/speed.log
-    speedtest | tee -a  ~/tmp/speed.log
-    echo "\n----" >> ~/tmp/speed.log
-    echo "data stored in ~/tmp/speed.log"
-}
-
-#for linux clipboards:
-alias setclip='xclip -selection c'
-alias getclip='xclip -selection clipboard -o'
-
-# Exports:
-#http://stackoverflow.com/a/31250347/1698467
-export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-eval "$(thefuck --alias)"
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/pk/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-## safe rm: brew install safe-rm
-alias rm='safe-rm'
-#alias rm="rm_i"
-
-#function rm_i(){
-#RM_BIN=safe-rm # you can replace it with regular rm if you like
-
-#args=""
-#files=""
-#argsDone=0 # to make sure arguments are before the files
-
-#for var in "$@"
-#do
-    #if [[ $var == \-* ]] ; then
-        #if [ $argsDone -eq 1 ] ; then
-            #$RM_BIN # just to show the usage of rm
-            #return
-        #fi
-        #args+=" $var"
-    #else
-        #argsDone=1
-        #files+=" $var"
-    #fi
-#done
-
-#args+=" -i" # Put -i at the end (so rm -rf will not ignore it)
-
-#$RM_BIN $args $files
-#}
-
-
-
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 
 # Customize aliases to your needs:
 alias psg="ps -A | grep"
@@ -286,23 +144,6 @@ alias hpr='hub pull-request -o'
 alias ghistory='history | grep'
 alias gcad='g add . && gca -m'
 alias cmd= 'mkcddir'
-
-# Thanks, @KrauseFx, for inspiration!
-# https://github.com/KrauseFx/dotfiles/blob/master/.zshrc
-alias zshrc="vim ~/.zshrc"
-#alias bundle!="bundle install && rake install"
-alias be="bundle exec"
-alias bi="bundle install"
-alias bu="bundle update"
-alias ri="rake install"
-alias c='code "$(git rev-parse --show-toplevel)"'
-alias i='idea "$(git rev-parse --show-toplevel)"'
-alias o='open "$(git rev-parse --show-toplevel)"'
-alias a='atom "$(git rev-parse --show-toplevel)"'
-
-# Now you can 'git kraken'!
-alias kraken='open -na "GitKraken" --args -p "$(git rev-parse --show-toplevel)"'
-
 
 # Docker aliases:
 alias dm-ssh='docker-machine ssh `docker-machine active`'

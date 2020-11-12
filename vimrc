@@ -18,6 +18,8 @@ Plug 'tpope/vim-surround'
 Plug 'kana/vim-fakeclip'
 "Fast comment lines
 Plug 'scrooloose/nerdcommenter'
+" https://github.com/dbeniamine/cheat.sh-vim
+Plug 'dbeniamine/cheat.sh-vim'
 
 " Color schemes:
 Plug 'sjl/badwolf'

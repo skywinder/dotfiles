@@ -5,73 +5,21 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME=powerlevel10k/powerlevel10k
 #ZSH_THEME="spaceship"
 #ZSH_THEME="agnoster"
 
-# Customize aliases to your needs:
-alias psg="ps -A | grep"
-alias lsa="ls -a"
-alias lsa="lsa | grep"
-alias cpath="pwd | pbcopy"
-alias gmg="git merge --no-ff"
-alias mg="merge --no-ff"
-alias srctree='open -a SourceTree "$(git rev-parse --show-toplevel)"'
-alias hpr='hub pull-request -o'
-alias ghistory='history | grep'
-alias gcad='g add . && gca -m'
-alias cmd= 'mkcddir'
-
-# Thanks, @KrauseFx, for inspiration!
-# https://github.com/KrauseFx/dotfiles/blob/master/.zshrc
-alias zshrc="vim ~/.zshrc"
-#alias bundle!="bundle install && rake install"
-alias be="bundle exec"
-alias bi="bundle install"
-alias bu="bundle update"
-alias ri="rake install"
-alias c='code "$(git rev-parse --show-toplevel)"'
-alias i='idea "$(git rev-parse --show-toplevel)"'
-alias o='open "$(git rev-parse --show-toplevel)"'
-alias a='atom "$(git rev-parse --show-toplevel)"'
-
-# Now you can 'git kraken'!
-alias kraken='open -na "GitKraken" --args -p "$(git rev-parse --show-toplevel)"'
-
-
-# Docker aliases:
-alias dm-ssh='docker-machine ssh `docker-machine active`'
-alias dm-ip='docker-machine ip `docker-machine active`'
-alias dm-env='docker-machine env `docker-machine active`'
-alias dm-inspect='docker-machine inspect `docker-machine active`'
-alias dm-config='docker-machine config `docker-machine active`'
-
-# env files when start sudo:
-alias sudo='sudo -E'
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -79,25 +27,21 @@ alias sudo='sudo -E'
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow git-hubflow github ruby rvm gem heroku brew pod osx npm node thefuck z tmux rsync history zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker  docker-compose  docker-machine)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git git-flow git-hubflow github ruby gem heroku brew pod osx npm node thefuck z tmux rsync history zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker  docker-compose  docker-machine)
 
 source $ZSH/oh-my-zsh.sh
+
+# User configuration
 
 # My actual PATH = /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin
 # So, next string probably not needed..
@@ -152,16 +96,16 @@ export PATH=$RUBYPATH/bin:$PATH
 
 #-----------
 
-#Hello, vim!
+# Hello, vim!
 export EDITOR=vim
 #Git vim editor with insert mode at start:
 export GIT_EDITOR='vim +startinsert!'
 
-#to coorect working pods:
+#to correct working pods:
 #see: https://github.com/CocoaPods/guides.cocoapods.org/issues/26
-export LC_ALL="en_US.UTF-8"
-#and others locale vars:
 export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+# and others locale vars:
 export LANGUAGE="en_US.UTF-8"
 
 # To make sed works: http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
@@ -172,34 +116,26 @@ export LANG=C
 export LC_CTYPE=C
 export LANG=C
 
-# For Android development (adb): http://stackoverflow.com/questions/10303639/adb-command-not-found
-export PATH=~/Library/Android/sdk/tools:$PATH
-export PATH=~/Library/Android/sdk/platform-tools:$PATH
-
+# load local env variables
 source ~/.env
 
-#####  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo. I'll try merge it latter :)
-#####  skywinder
+#  The next lines is from  https://github.com/michaeljsmalley/dotfiles.git repo.
 
-# Explicitly configured $PATH variable
-# PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/local/bin:/opt/local/sbin:/usr/X11/bin
+# ls after cd: (https://vas3k.club/question/3817/)
+cd() { builtin cd $@ && ls -lh }
 
 # Put any proprietary or private functions/values in ~/.private, and this will source them
 if [ -f $HOME/.private ]; then
    source $HOME/.private
 fi
 
-# if [ -f $HOME/.profile ]; then
-#     source $HOME/.profile  # Read Mac .profile, if present.
-# fi
+## Helper functions
 
-# # qfind - used to quickly find files that contain a string in a directory
+# qfind - used to quickly find files that contain a string in a directory
 function qfind () {
     find . -exec grep -l -s $1 {} \;
     return 0
 }
-
-
 
 # git quick update
 # thanks to https://github.com/nikitavoloboev/dotfiles
@@ -220,14 +156,14 @@ funciton gccd() {
    git clone "$1" && cd "$(basename "$1" .git)"
 }
 
-# mdir and cd:
+# cd after mdkir:
 function mkcdir ()
 {
     mkdir -p -- "$1" &&
       cd -P -- "$1"
 }
 
-# bk_script - make a copy of file with bk extension
+# bk - make a copy of file with bk extension
 function bk()
 {
     cp $1 $1.bk
@@ -249,6 +185,21 @@ function bkv()
     vim $1
 }
 
+
+
+# Simplified copy scrips: send filename and destination only.   echo "expercted 2 parameters: filename and path"
+# usage: cpf file path
+function cpf()
+{
+    if [ "$1" != "" ] && [ "$2" != "" ]; then
+        echo "cp ./${1} ${2}/${1}"
+        cp "./${1} ${2}/${1}"
+    else
+        echo "expercted 2 parameters: filename and path"
+    fi
+}
+
+# mac specific:
 # Fast clear Derived Data folder for Xcode
 function cleandd(){
 rm -rf ~/Library/Developer/Xcode/DerivedData
@@ -265,31 +216,11 @@ function speedlog()
     echo "data stored in ~/tmp/speed.log"
 }
 
-
-# Simplified copy scrips: send filename and destination only.   echo "expercted 2 parameters: filename and path"
-# usage: cpf file path
-function cpf()
-{
-    if [ "$1" != "" ] && [ "$2" != "" ]; then
-        echo "cp ./${1} ${2}/${1}"
-        cp "./${1} ${2}/${1}"
-    else
-        echo "expercted 2 parameters: filename and path"
-    fi
-}
-#
-# # Custom exports
-# ## Set EDITOR to /usr/bin/vim if Vim is installed
-# if [ -f /usr/bin/vim ]; then
-#     export EDITOR=/usr/bin/vim
-# fi
-
 #for linux clipboards:
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 
-#eval "$(thefuck --alias)"
-
+# Exports:
 #http://stackoverflow.com/a/31250347/1698467
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -302,9 +233,6 @@ export NVM_DIR="$HOME/.nvm"
 
 
 eval "$(thefuck --alias)"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -343,5 +271,45 @@ alias rm='safe-rm'
 #$RM_BIN $args $files
 #}
 
-# ls after cd: (https://vas3k.club/question/3817/)
-cd() { builtin cd $@ && ls -lh }
+
+
+
+# Customize aliases to your needs:
+alias psg="ps -A | grep"
+alias lsa="ls -a"
+alias lsa="lsa | grep"
+alias cpath="pwd | pbcopy"
+alias gmg="git merge --no-ff"
+alias mg="merge --no-ff"
+alias srctree='open -a SourceTree "$(git rev-parse --show-toplevel)"'
+alias hpr='hub pull-request -o'
+alias ghistory='history | grep'
+alias gcad='g add . && gca -m'
+alias cmd= 'mkcddir'
+
+# Thanks, @KrauseFx, for inspiration!
+# https://github.com/KrauseFx/dotfiles/blob/master/.zshrc
+alias zshrc="vim ~/.zshrc"
+#alias bundle!="bundle install && rake install"
+alias be="bundle exec"
+alias bi="bundle install"
+alias bu="bundle update"
+alias ri="rake install"
+alias c='code "$(git rev-parse --show-toplevel)"'
+alias i='idea "$(git rev-parse --show-toplevel)"'
+alias o='open "$(git rev-parse --show-toplevel)"'
+alias a='atom "$(git rev-parse --show-toplevel)"'
+
+# Now you can 'git kraken'!
+alias kraken='open -na "GitKraken" --args -p "$(git rev-parse --show-toplevel)"'
+
+
+# Docker aliases:
+alias dm-ssh='docker-machine ssh `docker-machine active`'
+alias dm-ip='docker-machine ip `docker-machine active`'
+alias dm-env='docker-machine env `docker-machine active`'
+alias dm-inspect='docker-machine inspect `docker-machine active`'
+alias dm-config='docker-machine config `docker-machine active`'
+
+# env files when start sudo:
+alias sudo='sudo -E'

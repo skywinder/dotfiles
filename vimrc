@@ -21,6 +21,8 @@ Plug 'scrooloose/nerdcommenter'
 " https://github.com/dbeniamine/cheat.sh-vim
 Plug 'dbeniamine/cheat.sh-vim'
 
+Plug 'tpope/vim-sensible'
+
 " Color schemes:
 Plug 'sjl/badwolf'
 Plug 'tomasr/molokai'

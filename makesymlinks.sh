@@ -50,3 +50,39 @@ echo -n "Clonning bin directory ..."
 ./install_bin.sh
 echo "Done"
 #check if ~/.vim/bundle/Vundle.vim is empty - run "git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+
+
+# Extra installations:
+
+# brew installation:
+
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    #ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/~/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    brew update
+fi
+
+#tmux
+which -s tmux
+if [[ $? != 0 ]] ; then
+    # Install tmux
+    brew install tmux
+fi
+
+# https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
+brew install git bash-completion
+
+brew install ripgrep
+
+# vim things 
+
+# install https://github.com/junegunn/vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+vim +'PlugInstall --sync' +qa

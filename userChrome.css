@@ -1,0 +1,39 @@
+/* Hide info icon for sites that don't have permissions */
+#urlbar :not(.grantedPermissions) #identity-icon {
+        transition: 300ms !important; /* Animate icon hiding */
+  opacity: 0 !important; /* Make icons transparent */
+  -moz-margin-end: -1.1em !important; /* Hide icons by offsetting them */
+}
+
+/* Hides the address bar history dropmarker permanently. */
+.urlbar-history-dropmarker{
+  display: none !important;
+}
+
+/* Hide Tree Style Tab toolbar header */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+  display: none;
+}
+
+/* Reduce sidebar min width */
+#sidebar {
+  min-width: 28px !important;
+}
+
+/* Hide the tab bar and merge the title bar with the navigation bar */
+#main-window { 
+  background-color: #323234 !important; 
+}
+
+#tabbrowser-tabs {
+  visibility: collapse !important;
+}
+
+#nav-bar {
+  margin-top: -33px;
+  margin-right: 150px;
+}
+
+#main-window .titlebar-buttonbox-container {
+  height: 32px !important;
+}

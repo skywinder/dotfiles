@@ -37,7 +37,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow git-flow-completion git-hubflow github ruby gem heroku brew pod osx npm node thefuck z tmux rsync history zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker  docker-compose  docker-machine)
+plugins=(git git-flow git-hubflow github ruby gem heroku brew pod osx npm node z tmux rsync history docker  docker-compose  docker-machine)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -231,8 +231,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
-eval "$(thefuck --alias)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

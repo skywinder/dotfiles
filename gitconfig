@@ -71,3 +71,5 @@
 	gpgsign = false
 [gpg]
 	program = /usr/local/bin/gpg
+[credential]
+	helper = store

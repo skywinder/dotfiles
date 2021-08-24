@@ -45,3 +45,5 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize su
 # TODO:
 
 # Add fingerpring as sudo: https://www.imore.com/how-use-sudo-your-mac-touch-id 
+
+# iTerm: Preferences > Keys > Show/hide all windows with a system-wide hotkey - set F12 + set natural presets in profile: https://apple.stackexchange.com/a/293988/49492

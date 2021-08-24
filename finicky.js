@@ -4,7 +4,15 @@
  */
 module.exports = {
     defaultBrowser: "Firefox",
+    //defaultBrowser: "Google Chrome",
     handlers: [
+        {
+            // Open links in Safari when the option key is pressed
+            // Valid keys are: shift, option, command, control, capsLock, and function.
+            // Please note that control usually opens a tooltip menu instead of visiting a link
+            match: () => finicky.getKeys().option,
+            browser: "Google Chrome"
+        },
         {
             // Open apple.com and example.org urls in Safari
             match: finicky.matchHostnames(["lazada.co.th", "example.org"]),

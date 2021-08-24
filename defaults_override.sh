@@ -41,3 +41,7 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize su
 #Go to profiles folder in firefox, then 
 # >    mkdir chrome
 # >    ln -s ~/dotfiles/userChrome.css ./chrome/userChrome.css
+
+# TODO:
+
+# Add fingerpring as sudo: https://www.imore.com/how-use-sudo-your-mac-touch-id 

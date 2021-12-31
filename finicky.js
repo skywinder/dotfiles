@@ -18,11 +18,10 @@ module.exports = {
             match: finicky.matchHostnames(["lazada.co.th", "example.org"]),
             browser: "Firefox"
         },
-        //{
-            //// Open apple.com and example.org urls in Safari
-            //match: finicky.matchHostnames(["gitlab.com", "github.com", "etherscan.io"]),
-            //browser: "Google Chrome"
-        //},
+        {
+            match: finicky.matchHostnames(["gitlab.com", "github.com", "etherscan.io", "hackmd.io"]),
+            browser: "Google Chrome"
+        },
         {
             // Open apple.com and example.org urls in Safari
             match: finicky.matchHostnames(["apple.com", "example.org"]),

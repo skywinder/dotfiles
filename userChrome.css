@@ -1,8 +1,8 @@
 /* Hide info icon for sites that don't have permissions */
 #urlbar :not(.grantedPermissions) #identity-icon {
         transition: 300ms !important; /* Animate icon hiding */
-  opacity: 0 !important; /* Make icons transparent */
-  -moz-margin-end: -1.1em !important; /* Hide icons by offsetting them */
+	opacity: 0 !important; /* Make icons transparent */
+	-moz-margin-end: -1.1em !important; /* Hide icons by offsetting them */
 }
 
 /* Hides the address bar history dropmarker permanently. */
@@ -21,8 +21,8 @@
 }
 
 /* Hide the tab bar and merge the title bar with the navigation bar */
-#main-window { 
-  background-color: #323234 !important; 
+/*#main-window { 
+	background-color: #323234 !important; 
 }
 
 #tabbrowser-tabs {
@@ -30,10 +30,42 @@
 }
 
 #nav-bar {
-  margin-top: -33px;
-  margin-right: 150px;
+  margin-top: -20px !important;
+}
+
+#nav-bar:not([inFullscreen]) {
+	margin-top: -32px !important;
+	margin-left: 90px !important;
 }
 
 #main-window .titlebar-buttonbox-container {
   height: 32px !important;
+}*/
+
+#TabsToolbar {
+  height: 0px !important;
+}
+
+#tabbrowser-tabs {
+  height: 0px !important;
+  visibility: collapse;
+}
+
+#nav-bar{
+	margin-top: -20px !important;
+  border-top-width: 0px !important;
+}
+
+/* Position window controls */
+.titlebar-buttonbox-container {
+  margin-left: 0px !important;
+  margin-top: 8px !important;
+}
+
+/*
+ * Make room for window controls.
+ * Only apply this style when not in fullscreen mode.
+ */
+#main-window:not([inFullscreen]) #nav-bar{
+  padding: 0px 5px 0px 100px !important;
 }

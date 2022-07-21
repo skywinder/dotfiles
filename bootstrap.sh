@@ -2,9 +2,17 @@
 #######
 #wget https://raw.githubusercontent.com/skywinder/dotfiles/master/bootstrap.sh && chmod +x ./bootstrap.sh && ./bootstrap.sh
 #######
-#
+
+
 #install zsh
-apt install zsh -y
+if [ "$(uname)" == "Darwin" ]; then
+    # Do something under Mac OS X platform
+    brew install zsh
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    # Do something under GNU/Linux platform
+    apt install zsh -y
+fi
+
 
 #oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

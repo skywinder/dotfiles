@@ -8,6 +8,7 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#
 
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
@@ -48,6 +49,10 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:$HOME/bin
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.8/bin"
 # https://docs.python-guide.org/starting/install3/osx/#install3-osx
+
+# Poetry installation path
+export PATH="$PATH:$HOME/.local/bin"
+
 
 export PATH="~/Library/Python/3.7:$PATH"
 alias python=python3
@@ -211,7 +216,7 @@ function speedlog()
 {
     echo "\n----\n" >> ~/tmp/speed.log
     date >> ~/tmp/speed.log
-    speedtest | tee -a  ~/tmp/speed.log
+    fast -u | tee -a  ~/tmp/speed.log
     echo "\n----" >> ~/tmp/speed.log
     echo "data stored in ~/tmp/speed.log"
 }
@@ -311,3 +316,4 @@ alias dm-config='docker-machine config `docker-machine active`'
 
 # env files when start sudo:
 alias sudo='sudo -E'
+

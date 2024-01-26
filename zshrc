@@ -16,7 +16,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# See https://github.com/ohmyzshwiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME=powerlevel10k/powerlevel10k
 #ZSH_THEME="spaceship"
@@ -162,6 +162,13 @@ funciton gccd() {
    git clone "$1" && cd "$(basename "$1" .git)"
 }
 
+function mcg () 
+{
+    echo "Creating folder named: $1"
+    mkdir "$1" && cd "$1" && git init
+    echo "Folder $1 created and git initialized."
+}
+
 # cd after mdkir:
 function mkcdir ()
 {
@@ -239,9 +246,6 @@ export NVM_DIR="$HOME/.nvm"
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/pk/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

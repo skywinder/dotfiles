@@ -3,7 +3,7 @@
  * Save as ~/.finicky.js
  */
 module.exports = {
-    defaultBrowser: "Firefox",
+    defaultBrowser: "Arc",
     //defaultBrowser: "Google Chrome",
 
     rewrite: [
@@ -80,7 +80,7 @@ module.exports = {
             // Valid keys are: shift, option, command, control, capsLock, and function.
             // Please note that control usually opens a tooltip menu instead of visiting a link
             match: () => finicky.getKeys().command,
-            browser: "Firefox"
+            browser: "Arc"
         },
 
         {
@@ -111,44 +111,45 @@ module.exports = {
             match: ({ opener }) =>
                 ["com.tdesktop.Telegram", "com.tinyspeck.slackmacgap", "notion.id"].includes(opener.bundleId),
             // use work profile
-            browser: {
-                name: "Google Chrome",
-                profile: "Profile 3",
-            }
+            browser: "Arc"
+              // {
+                // name: "Google Chrome",
+                // profile: "Profile 3",
+            // }
         },
-        {
-            // Open apple.com and example.org urls in Safari
-            match: finicky.matchHostnames(["lazada.co.th"]),
-            browser: "Firefox"
-        },
-        {
-            // Open any url that includes the string "workplace" in Firefox
-            match: /oxorio/,
-            // use work profile
-            browser: {
-                name: "Google Chrome",
-                profile: "Profile 3",
-            }
-        },
-        {
-            match: finicky.matchHostnames(["gitlab.com", "github.com", "etherscan.io", "hackmd.io", "meet.google.com", "notion.so", "clickup.com", "app.clickup.com"]),
-            // use work profile
-            browser: {
-                name: "Google Chrome",
-                profile: "Profile 3",
-            }
-        },
-        {
-            // Open apple.com and example.org urls in Safari
-            match: finicky.matchHostnames(["apple.com", "example.org"]),
-            // browser: "Safari"
-            // browser: "Google Chrome",
-            // use personal profile
-            browser: {
-                name: "Google Chrome",
-                profile: "Profile 10",
-            }
-        },
+        // {
+        //     // Open apple.com and example.org urls in Safari
+        //     match: finicky.matchHostnames(["lazada.co.th"]),
+        //     browser: "Firefox"
+        // },
+        // {
+        //     // Open any url that includes the string "workplace" in Firefox
+        //     match: /oxorio/,
+        //     // use work profile
+        //     browser: {
+        //         name: "Google Chrome",
+        //         profile: "Profile 3",
+        //     }
+        // },
+        // {
+        //     match: finicky.matchHostnames(["gitlab.com", "github.com", "etherscan.io", "hackmd.io", "meet.google.com", "notion.so", "clickup.com", "app.clickup.com"]),
+        //     // use work profile
+        //     browser: {
+        //         name: "Google Chrome",
+        //         profile: "Profile 3",
+        //     }
+        // },
+        // {
+        //     // Open apple.com and example.org urls in Safari
+        //     match: finicky.matchHostnames(["apple.com", "example.org"]),
+        //     // browser: "Safari"
+        //     // browser: "Google Chrome",
+        //     // use personal profile
+        //     browser: {
+        //         name: "Google Chrome",
+        //         profile: "Profile 10",
+        //     }
+        // },
         {
             match: "open.spotify.com*",
             browser: "Spotify"

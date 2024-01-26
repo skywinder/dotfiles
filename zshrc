@@ -99,6 +99,8 @@ export PATH=$GEM_HOME/bin:$PATH
 export RUBYPATH="/usr/local/lib/ruby/gems/2.7.0"
 export PATH=$RUBYPATH/bin:$PATH
 
+# add MEGA cli support
+export PATH=/Applications/MEGAcmd.app/Contents/MacOS:$PATH
 
 #-----------
 

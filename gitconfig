@@ -68,7 +68,10 @@
 [commit]
 	;template = ~/.stCommitMsg
 	gpgsign = false
+	template = ~/.stCommitMsg
 [gpg]
 	program = /usr/local/bin/gpg
 [credential]
 	helper = store
+[init]
+	defaultBranch = main

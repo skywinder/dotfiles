@@ -39,7 +39,37 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow git-hubflow github ruby gem heroku brew pod macos npm node z tmux rsync history docker  docker-compose  docker-machine yarn poetry)
+plugins=(
+git
+github
+ruby
+gem
+brew
+pod
+macos
+npm
+node
+z
+tmux
+rsync
+history
+docker
+docker-compose
+docker-machine
+yarn
+poetry
+# add from idealatom setup on vps:
+gitfast
+python
+pyenv
+dotenv
+safe-paste
+zsh-interactive-cd
+zsh-navigation-tools
+F-Sy-H # (fast-syntax-highlighting)
+zsh-autosuggestions
+history-substring-search    # history-substring-search should be loaded after zsh-syntax-highlighting and zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -164,7 +194,7 @@ funciton gccd() {
    git clone "$1" && cd "$(basename "$1" .git)"
 }
 
-function mcg () 
+function mcg ()
 {
     echo "Creating folder named: $1"
     mkdir "$1" && cd "$1" && git init
@@ -341,4 +371,11 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# pyenv installations script:
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+#
 

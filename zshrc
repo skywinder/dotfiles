@@ -42,6 +42,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
 git
 github
+gh
 ruby
 gem
 brew
@@ -62,7 +63,7 @@ poetry
 gitfast
 python
 pyenv
-dotenv
+#dotenv
 safe-paste
 zsh-interactive-cd
 zsh-navigation-tools

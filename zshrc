@@ -148,12 +148,8 @@ export LC_ALL="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
 # To make sed works: http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
-export LC_CTYPE=C
-export LANG=C
-
-# To make sed works: http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
-export LC_CTYPE=C
-export LANG=C
+#export LC_CTYPE=C
+#export LANG=C
 
 # load local env variables
 source ~/.env
@@ -380,3 +376,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 #
 
+
+export NARGO_HOME="/Users/pk/.nargo"
+
+export PATH="$PATH:$NARGO_HOME/bin"
+
+export BB_HOME="/Users/pk/.bb"
+
+export PATH="$PATH:$BB_HOME"

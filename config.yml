@@ -19,6 +19,14 @@ dotfiles:
     - p10k.zsh
     - finicky.js
     - config
+  environment:
+    paths:
+      - NARGO_HOME: "/Users/pk/.nargo"
+      - BB_HOME: "/Users/pk/.bb"
+    locale:
+      LC_CTYPE: "C"
+      LANG: "C"
+      enabled: false  # These are commented out in the diff
 
 brew:
   packages:
@@ -26,13 +34,39 @@ brew:
       required_version: ">=3.0"
     - name: git
       required_version: ">=2.0.0"
+    - name: git-secret
     - name: bash-completion
     - name: ripgrep
     - name: yq
+    # Add any other brew packages you commonly use
 
 vim:
   plug_url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   plug_install_dir: "~/.vim/autoload/plug.vim"
   plugins_to_install:
-    - "plugin1"
-    - "plugin2"
+    # Core functionality
+    - 'tpope/vim-surround'        # Surroundings manipulation
+    - 'tpope/vim-sensible'        # Sensible defaults
+    - 'kana/vim-fakeclip'         # OS X clipboard support
+    - 'scrooloose/nerdcommenter'  # Fast commenting
+    - 'dbeniamine/cheat.sh-vim'   # Cheat.sh integration
+
+    # Fuzzy finding
+    - name: 'junegunn/fzf'
+      options: { 'dir': '~/.fzf', 'do': './install --all' }
+    - 'alok/notational-fzf-vim'
+
+    # Language support
+    - 'vim-ruby/vim-ruby'         # Ruby support
+    - 'tomlion/vim-solidity'      # Solidity support
+
+    # UI and themes
+    - 'vim-airline/vim-airline'   # Status/tabline
+    - 'sjl/badwolf'              # Color scheme
+    - 'tomasr/molokai'           # Color scheme
+    - 'morhetz/gruvbox'          # Color scheme
+
+# You might want to add sections for:
+# - OS-specific configurations
+# - Additional tool configurations
+# - Custom scripts or commands to run during setup

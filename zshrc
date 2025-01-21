@@ -353,6 +353,9 @@ alias dm-config='docker-machine config `docker-machine active`'
 # env files when start sudo:
 alias sudo='sudo -E'
 
+#alias tailscale="/System/Volumes/Data/Applications/_dev_VPN/Tailscale.app"
+
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

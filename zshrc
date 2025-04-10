@@ -80,6 +80,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# Ensure pyenv shims have the highest priority
+# This adds additional initialization for pyenv to handle all python commands
+eval "$(pyenv init --path)"
+
 # Poetry installation path (for Python package management)
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -179,8 +183,8 @@ source ~/.env
 cd() { builtin cd $@ && ls -lh }
 
 # Python aliases
-alias python=python3
-alias pip=pip3
+# alias python=python3
+# alias pip=pip3
 
 # Put any proprietary or private functions/values in ~/.private, and this will source them
 if [ -f $HOME/.private ]; then

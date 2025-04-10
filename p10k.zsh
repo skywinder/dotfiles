@@ -1591,3 +1591,10 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
+# Fix for cursor reset issues
+typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
+typeset -g POWERLEVEL9K_PROMPT_ON_NEWLINE=false
+typeset -g POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
+typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=''

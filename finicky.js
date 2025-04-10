@@ -51,18 +51,18 @@ module.exports = {
         // },
     ],
     handlers: [
-        {
-            // Open links in Chrome when the option key is pressed
-            // Valid keys are: shift, option, command, control, capsLock, and function.
-            // Please note that control usually opens a tooltip menu instead of visiting a link
-            match: () => finicky.getKeys().option,
-            browser: {
-                name: "Google Chrome",
-                profile: "Profile 3",
-            }
-            // use work profile
-            // browser: "Firefox"
-        },
+        // {
+        //     // Open links in Chrome when the option key is pressed
+        //     // Valid keys are: shift, option, command, control, capsLock, and function.
+        //     // Please note that control usually opens a tooltip menu instead of visiting a link
+        //     match: () => finicky.getKeys().option,
+        //     browser: {
+        //         name: "Google Chrome",
+        //         profile: "Profile 3",
+        //     }
+        //     // use work profile
+        //     // browser: "Firefox"
+        // },
         {
             // Open links in Chrome when the option key is pressed
             // Valid keys are: shift, option, command, control, capsLock, and function.

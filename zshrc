@@ -34,11 +34,11 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
+# ==========================================
+# PLUGIN OPTIMIZATION
+# ==========================================
 # Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Note: Only load what you need to improve shell startup time
 plugins=(
 git
 github
@@ -56,14 +56,12 @@ rsync
 history
 docker
 docker-compose
-docker-machine
 yarn
 poetry
 # add from idealatom setup on vps:
 gitfast
 python
 pyenv
-#dotenv
 safe-paste
 zsh-interactive-cd
 zsh-navigation-tools
@@ -73,8 +71,6 @@ history-substring-search    # history-substring-search should be loaded after zs
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
 
 # ==========================================
 # PYTHON ENVIRONMENT SETUP
@@ -88,9 +84,40 @@ eval "$(pyenv init -)"
 export PATH="$HOME/.local/bin:$PATH"
 
 # ==========================================
-# END PYTHON ENVIRONMENT SETUP
+# NODE.JS ENVIRONMENT SETUP
 # ==========================================
+# NVM setup
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# NPM
+export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"
+
+# ==========================================
+# RUBY ENVIRONMENT SETUP
+# ==========================================
+# Ruby related paths
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export GEM_HOME=$HOME/.gem
+export PATH=$HOME/.gem/bin:$PATH
+export RUBYPATH="/usr/local/lib/ruby/gems/2.7.0"
+export PATH=$RUBYPATH/bin:$PATH
+eval "$(rbenv init - zsh)"
+
+# ==========================================
+# GOLANG ENVIRONMENT SETUP
+# ==========================================
+# For Go lang:
+export GOPATH="$HOME/Projects/go"
+export PATH=$GOPATH/bin:$PATH
+
+# ==========================================
+# OTHER PATH ADDITIONS
+# ==========================================
 # Core PATH additions
 export PATH=$PATH:$HOME/bin
 export PATH="$PATH:/Users/jetbrains/.local/bin"
@@ -101,21 +128,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # For brew:
 export PATH=/usr/local/sbin:$PATH
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-
-# For npm:
-export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"
-
-# For Go lang:
-export GOPATH="$HOME/Projects/go"
-export PATH=$GOPATH/bin:$PATH
-
-# Ruby related paths
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export GEM_HOME=$HOME/.gem
-export PATH=$HOME/.gem/bin:$PATH
-export RUBYPATH="/usr/local/lib/ruby/gems/2.7.0"
-export PATH=$RUBYPATH/bin:$PATH
-eval "$(rbenv init - zsh)"
 
 # Cargo (Rust)
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -132,6 +144,18 @@ export PATH="$PATH:$NARGO_HOME/bin"
 export BB_HOME="/Users/pk/.bb"
 export PATH="$PATH:$BB_HOME"
 
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ==========================================
+# PATH DEDUPLICATION
+# ==========================================
+# Remove duplicate entries from PATH
+typeset -U PATH
+
+# ==========================================
+# ENVIRONMENT VARIABLES
+# ==========================================
 # Hello, vim!
 export EDITOR=vim
 # Git vim editor with insert mode at start:
@@ -256,14 +280,6 @@ function speedlog()
 #for linux clipboards:
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## safe rm: brew install safe-rm
 alias rm='safe-rm'

@@ -26,41 +26,58 @@
 
 # Logs and databases #
 ######################
-#*.log
-#*.sql
-#*.sqlite
+*.log
+*.sql
+*.sqlite
+*.sqlite3
 
 # OS generated files #
 ######################
+## macOS
+.DS_Store
+.DS_Store?
 ._*
 .Spotlight-V100
+.Trashes
+.LSOverride
+Icon?
+
+## Windows
 ehthumbs.db
 Thumbs.db
-.LSOverride
+Desktop.ini
 
 # OS X temporary files that should never be committed
 # c.f. http://www.westwind.com/reference/os-x/invisibles.html
-.DS_Store
-.DS_Store?
-# c.f. http://www.westwind.com/reference/os-x/invisibles.html
-.Trashes
-# c.f. http://www.westwind.com/reference/os-x/invisibles.html
+*~
 *.swp
+*.swo
+.~*.doc#
+*.tmp
+*.temp
 
 # Open Office temp file
-.~*.doc#
-
-# vim temporary files
 *~
 *.swp
 *.swo
 
 # Xcode
-.DS_Store
-profile
-*.hmap
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+xcuserdata/
 *.xccheckout
+*.moved-aside
+DerivedData/
+build/
+*.hmap
 *.ipa
+profile
 
 # http://stackoverflow.com/questions/10956312/is-the-project-xcworkspace-file-important
 #project.xcworkspace/
@@ -68,55 +85,16 @@ profile
 # NB: NIB/XIB files still exist even on Storyboard projects, so we want this...
 *~.nib
 
-# Xcode build files -
-# NB: slash on the end, so we only remove the FOLDER, not any files that were badly named "DerivedData"
-DerivedData/
-# NB: slash on the end, so we only remove the FOLDER, not any files that were badly named "build"
-build/
-
-#####
-# Xcode private settings (window sizes, bookmarks, breakpoints, custom executables, smart groups)
-# SOMETIMES you need to put *.pbxuser in version control. If you use "custom executables", they are saved in this file.
-# 99% of projects do NOT use those. But if you're in the 1%, comment out the line "*.pbxuser"
-# .pbxuser: http://lists.apple.com/archives/xcode-users/2004/Jan/msg00193.html
-*.pbxuser
-# .mode1v3: http://lists.apple.com/archives/xcode-users/2007/Oct/msg00465.html
-*.mode1v3
-# .mode2v3: http://lists.apple.com/archives/xcode-users/2007/Oct/msg00465.html
-*.mode2v3
-# .perspectivev3: http://stackoverflow.com/questions/5223297/xcode-projects-what-is-a-perspectivev3-file
-*.perspectivev3
-
-#NB: also, whitelist the default ones, some projects need to use these
-!default.pbxuser
-!default.mode1v3
-!default.mode2v3
-!default.perspectivev3
-
-####
-# Xcode 4 - semi-personal settings
-xcuserdata
-
-####
-# Xcode 4 - Deprecated classes
-# Allegedly, if you manually "deprecate" your classes, they get moved here.
-# We're using source-control, so this is a "feature" that we do not want!
-*.moved-aside
-
-####
-# Xcode 5
-# Some VCS metadata should be ignored: ..or may be not. :)
-#*.xccheckout
-
 # Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
 # hence it is not needed unless you have added a package configuration file to your project
 # .swiftpm
 
-.build/
-
 ####
 # AppCode
 .idea/
+*.iml
+*.iws
+*.ipr
 
 #####
 # SkyWinder's additions to correctly use CocoaPods:
@@ -159,7 +137,7 @@ xcuserdata
 ## Specific to RubyMotion:
 .dat*
 .repl_history
-build/
+.build/
 
 ## Documentation cache and generated files:
 /.yardoc/
@@ -183,7 +161,97 @@ build/
 
 
 # add Visual studio configs to gitignore
-.vscode
+.vscode/
+.cursorignore
 
 # do not track .env:
 .env
+.env.*
+!.env.example
+!.env.template
+
+
+#extra
+files
+.swp
+*.swo
+
+# Logs and databases
+*.log
+*.sqlite
+*.sqlite3
+
+# Environment and dependency directories
+node_modules/
+venv/
+.env
+.env.*
+!.env.example
+
+# Build and distribution
+dist/
+.build/
+*.pyc
+
+# Language Specific
+## JavaScript/Node.js
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+.node_repl_history
+.eslintcache
+coverage/
+.nyc_output/
+
+## Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.pyc
+.coverage
+htmlcov/
+venv/
+.venv/
+env/
+ENV/
+
+## Java/Kotlin
+*.class
+*.jar
+.gradle/
+target/
+build/
+
+## Swift
+.build/
+.swiftpm/
+
+# Development Tools
+## Docker
+.docker/
+docker-compose.override.yml
+
+## Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+## Kubernetes
+.kube/
+
+# Security
+*.pem
+*.key
+*.p12
+id_rsa
+id_dsa
+*.crt
+*.cert
+
+# Other
+.cache/
+dist/
+files

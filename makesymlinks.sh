@@ -14,6 +14,55 @@ error_handler() {
 
 trap 'error_handler ${LINENO}' ERR
 
+# Function to handle bin directory installation
+install_bin_directory() {
+    echo -n "Setting up bin directory ..."
+
+    # Check if bin directory exists and is a git repository
+    if [[ -d "${HOME}/bin" && -d "${HOME}/bin/.git" ]]; then
+        echo "~/bin exists and is a git repository"
+
+        # Check for unstaged changes
+        if ! (cd "${HOME}/bin" && git diff --quiet); then
+            echo "Warning: Unstaged changes detected in ~/bin"
+
+            read -p "Would you like to (s)tash changes, (i)gnore and skip update, or (f)orce stash and update? [s/i/f] " choice
+
+            case "$choice" in
+                s|S)
+                    echo "Stashing changes in ~/bin"
+                    (cd "${HOME}/bin" && git stash)
+                    ;;
+                f|F)
+                    echo "Force stashing changes in ~/bin"
+                    (cd "${HOME}/bin" && git stash --include-untracked)
+                    ;;
+                *)
+                    echo "Skipping bin directory update"
+                    return 0
+                    ;;
+            esac
+        fi
+
+        # Try to update the repository
+        echo "Updating bin directory..."
+        if ! (cd "${HOME}/bin" && git pull --rebase); then
+            echo "Warning: Failed to update bin directory, but continuing with other tasks"
+            return 0  # Non-fatal error, continue script
+        fi
+    else
+        # If bin doesn't exist or is not a git repository, run install_bin.sh
+        echo "Installing bin directory..."
+        if ! ./install_bin.sh; then
+            echo "Warning: Failed to install bin directory, but continuing with other tasks"
+            return 0  # Non-fatal error, continue script
+        fi
+    fi
+
+    echo "bin directory setup complete"
+    return 0
+}
+
 # Function to ensure yq is installed
 ensure_yq() {
     if ! command -v yq >/dev/null 2>&1; then
@@ -74,10 +123,16 @@ init_from_config() {
     fi
 
     # Read files array from config
-    mapfile -t files < <(read_config '.dotfiles.files[]')
+    files=()
+    while IFS= read -r file; do
+        files+=("$file")
+    done < <(read_config '.dotfiles.files[]')
 
     # Read brew packages from config
-    mapfile -t packages < <(read_config '.brew.packages[].name')
+    packages=()
+    while IFS= read -r pkg; do
+        packages+=("$pkg")
+    done < <(read_config '.brew.packages[].name')
 }
 
 # Clean up old backup versions
@@ -90,8 +145,10 @@ clean_old_backups() {
     fi
 
     # Get list of backup directories sorted by date (oldest first)
-    local backup_dirs=()
-    mapfile -t backup_dirs < <(find "${backup_root}" -maxdepth 1 -type d -name "[0-9]*_[0-9]*" | sort)
+    backup_dirs=()
+    while IFS= read -r dir_path; do
+        backup_dirs+=("$dir_path")
+    done < <(find "${backup_root}" -maxdepth 1 -type d -name "[0-9]*_[0-9]*" | sort)
 
     # Remove oldest backups if we exceed the limit
     local count=${#backup_dirs[@]}
@@ -213,12 +270,8 @@ for file in "${files[@]}"; do
     fi
 done
 
-echo -n "Cloning bin directory ..."
-if ! ./install_bin.sh; then
-    echo "Error: Failed to install bin directory"
-    exit 1
-fi
-echo "Done"
+# Handle bin directory separately - make it non-fatal
+install_bin_directory
 
 # Install/Update Homebrew
 if ! command -v brew >/dev/null 2>&1; then

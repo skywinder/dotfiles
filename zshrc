@@ -6,6 +6,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  export PS1='$ '; PROMPT='$ '        # single‑line, no colours
+  # Cursor is based on VS Code, so this should work
+  echo "Detected Cursor - disabling pagers for AI agent"
+  export PAGER=cat
+  export GIT_PAGER=""
+  export BAT_PAGER=""
+  # Add other tool-specific pager settings here
+fi
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -213,7 +223,9 @@ function re(){
 
 # cd after clone: https://unix.stackexchange.com/questions/97920/how-to-cd-automatically-after-git-clone
 function gccd() {
-   git clone "$1" && cd "$(basename "$1" .git)"
+  gh repo clone "$1"
+  dir=$(basename "$1")
+  cd "$dir"
 }
 
 function mcg ()
@@ -316,3 +328,12 @@ alias kraken='open -na "GitKraken" --args -p "$(git rev-parse --show-toplevel)"'
 
 # env files when start sudo:
 alias sudo='sudo -E'
+
+# for color logs:
+#alias tail='grc tail'
+alias tail='grc --colour=auto tail'
+
+# from https://github.com/TeamPyOgg/PyOgg/issues/113#issuecomment-2585724522
+export DYLD_LIBRARY_PATH=/opt/homebrew/lib:$DYLD_LIBRARY_PATH
+export LIBRARY_PATH=/opt/homebrew/lib:$LIBRARY_PATH
+export PKG_CONFIG_PATH=/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH

@@ -6,3 +6,4 @@ private
 !*.secret
 env
 vim/bundle
+.idea

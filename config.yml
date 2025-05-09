@@ -1,6 +1,9 @@
 dotfiles:
   directory: ~/dotfiles
   backup_directory: ~/dotfiles_old
+  backup_strategy:
+    type: versioned  # Options: simple, versioned
+    keep_versions: 5  # Number of backup versions to keep (for versioned strategy)
   files:
     - zshrc
     - private
@@ -19,6 +22,7 @@ dotfiles:
     - p10k.zsh
     - finicky.js
     - config
+    - grc
   environment:
     paths:
       - NARGO_HOME: "/Users/pk/.nargo"

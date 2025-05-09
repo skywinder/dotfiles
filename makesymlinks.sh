@@ -33,7 +33,7 @@ read_config() {
     if [[ ! -f "${config_file}" ]]; then
         echo "Error: config.yml not found at ${config_file}"
         exit 1
-    }
+    fi
     yq "$1" "${config_file}"
 }
 
@@ -59,11 +59,51 @@ init_from_config() {
     dir=$(read_config '.dotfiles.directory' | sed "s|~/|${HOME}/|")
     olddir=$(read_config '.dotfiles.backup_directory' | sed "s|~/|${HOME}/|")
 
+    # Get backup strategy settings
+    backup_strategy=$(read_config '.dotfiles.backup_strategy.type' 2>/dev/null || echo "simple")
+    backup_versions=$(read_config '.dotfiles.backup_strategy.keep_versions' 2>/dev/null || echo "5")
+
+    # If using versioned backups, create a timestamped directory
+    if [[ "${backup_strategy}" == "versioned" ]]; then
+        timestamp=$(date +"%Y%m%d_%H%M%S")
+        olddir="${olddir}/${timestamp}"
+        echo "Using versioned backup strategy. Backup directory: ${olddir}"
+
+        # Clean up old backups if we exceed the keep_versions limit
+        clean_old_backups
+    fi
+
     # Read files array from config
     mapfile -t files < <(read_config '.dotfiles.files[]')
 
     # Read brew packages from config
     mapfile -t packages < <(read_config '.brew.packages[].name')
+}
+
+# Clean up old backup versions
+clean_old_backups() {
+    local backup_root=$(read_config '.dotfiles.backup_directory' | sed "s|~/|${HOME}/|")
+    local max_versions="${backup_versions}"
+
+    if [[ ! -d "${backup_root}" ]]; then
+        return
+    fi
+
+    # Get list of backup directories sorted by date (oldest first)
+    local backup_dirs=()
+    mapfile -t backup_dirs < <(find "${backup_root}" -maxdepth 1 -type d -name "[0-9]*_[0-9]*" | sort)
+
+    # Remove oldest backups if we exceed the limit
+    local count=${#backup_dirs[@]}
+    local to_remove=$((count - max_versions))
+
+    if [[ ${to_remove} -gt 0 ]]; then
+        echo "Cleaning up ${to_remove} old backup(s)..."
+        for ((i=0; i<to_remove; i++)); do
+            echo "Removing old backup: ${backup_dirs[i]}"
+            rm -rf "${backup_dirs[i]}"
+        done
+    fi
 }
 
 # Function to check package version requirements

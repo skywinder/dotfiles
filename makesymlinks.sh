@@ -165,10 +165,27 @@ for file in "${files[@]}"; do
     target_link="${HOME}/.${file}"
     backup_file="${olddir}/.${file}"
 
-    # Check if the source file exists
+    # Check if the source file exists in dotfiles repo
     if [[ ! -e "${source_file}" ]]; then
-        echo "Warning: Source file ${source_file} does not exist"
-        continue
+        # If the file exists in home directory, copy it to the dotfiles repo
+        if [[ -e "${target_link}" && ! -L "${target_link}" ]]; then
+            echo "File ${target_link} exists in home directory but not in dotfiles repo"
+            echo "Copying ${target_link} to ${source_file}"
+
+            # Create parent directories if they don't exist
+            mkdir -p "$(dirname "${source_file}")"
+
+            # Copy the file/directory
+            if [[ -d "${target_link}" ]]; then
+                cp -r "${target_link}" "${source_file}"
+            else
+                cp "${target_link}" "${source_file}"
+            fi
+            echo "Successfully copied ${file} to dotfiles repository"
+        else
+            echo "Warning: Source file ${source_file} does not exist and no original found in home directory"
+            continue
+        fi
     fi
 
     # Check if it's already correctly linked

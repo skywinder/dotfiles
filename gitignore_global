@@ -161,7 +161,10 @@ profile
 
 
 # add Visual studio configs to gitignore
-.vscode/
+.vscode/*
+!.vscode/launch.json
+!.vscode/extensions.json
+
 .cursorignore
 
 # do not track .env:

@@ -333,7 +333,22 @@ alias sudo='sudo -E'
 #alias tail='grc tail'
 alias tail='grc --colour=auto tail'
 
+### -----------------------------------------------------------
+### 1-LINE PROGRESS  •  FULL-METADATA LOCAL CLONE  •  APFS/HFS+
+### -----------------------------------------------------------
+
+# Prefer Homebrew’s modern rsync (≥3). Fallback to the macOS copy if missing.
+if command -v /opt/homebrew/bin/rsync >/dev/null 2>&1; then
+  export RSYNC_CMD="/opt/homebrew/bin/rsync"
+else
+  export RSYNC_CMD="/usr/bin/rsync"        # macOS 2.6.9
+fi
+
 # from https://github.com/TeamPyOgg/PyOgg/issues/113#issuecomment-2585724522
 export DYLD_LIBRARY_PATH=/opt/homebrew/lib:$DYLD_LIBRARY_PATH
 export LIBRARY_PATH=/opt/homebrew/lib:$LIBRARY_PATH
 export PKG_CONFIG_PATH=/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH
+
+. "$HOME/.local/bin/env"
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"

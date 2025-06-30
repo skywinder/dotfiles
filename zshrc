@@ -6,16 +6,39 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# --- Minimal ZSH config for Cursor/VSCode terminal ---
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-  export PS1='$ '; PROMPT='$ '        # single‑line, no colours
-  # Cursor is based on VS Code, so this should work
-  echo "Detected Cursor - disabling pagers for AI agent"
+  # Minimal oh-my-zsh setup for Cursor/VSCode
+  export ZSH="$HOME/.oh-my-zsh"
+  ZSH_THEME=""  # Use pure zsh prompt instead of powerlevel10k
+
+  # Minimal plugin set for fast loading
+  plugins=(git)
+
+  # Load oh-my-zsh with minimal config
+  source $ZSH/oh-my-zsh.sh
+
+  # Simple prompt
+  export PS1='%F{blue}%~%f %# '
+  RPROMPT=''
+
+  # Essential environment variables
   export PAGER=cat
   export GIT_PAGER=""
   export BAT_PAGER=""
-  # Add other tool-specific pager settings here
-fi
+  export EDITOR=vim
+  export LANG="en_US.UTF-8"
+  export LC_ALL="en_US.UTF-8"
+  export LANGUAGE="en_US.UTF-8"
 
+  # Essential PATH (keep basic functionality)
+  export PATH="$HOME/bin:/usr/local/bin:/opt/homebrew/bin:$PATH"
+
+  # Load critical environment from .env if it exists
+  [[ -f ~/.env ]] && source ~/.env
+
+  return  # Prevents loading the rest of .zshrc for Cursor
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -337,7 +360,7 @@ alias tail='grc --colour=auto tail'
 ### 1-LINE PROGRESS  •  FULL-METADATA LOCAL CLONE  •  APFS/HFS+
 ### -----------------------------------------------------------
 
-# Prefer Homebrew’s modern rsync (≥3). Fallback to the macOS copy if missing.
+# Prefer Homebrew's modern rsync (≥3). Fallback to the macOS copy if missing.
 if command -v /opt/homebrew/bin/rsync >/dev/null 2>&1; then
   export RSYNC_CMD="/opt/homebrew/bin/rsync"
 else

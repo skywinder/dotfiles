@@ -2,46 +2,19 @@
 #
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+if [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# --- Minimal ZSH config for Cursor/VSCode terminal ---
+# --- Cursor/VSCode detection ---
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-  # Minimal oh-my-zsh setup for Cursor/VSCode
-  export ZSH="$HOME/.oh-my-zsh"
-  ZSH_THEME=""  # Use pure zsh prompt instead of powerlevel10k
-
-  # Minimal plugin set for fast loading
-  plugins=(git)
-
-  # Load oh-my-zsh with minimal config
-  source $ZSH/oh-my-zsh.sh
-
-  # Simple prompt
-  export PS1='%F{blue}%~%f %# '
-  RPROMPT=''
-
-  # Essential environment variables
-  export PAGER=cat
-  export GIT_PAGER=""
-  export BAT_PAGER=""
-  export EDITOR=vim
-  export LANG="en_US.UTF-8"
-  export LC_ALL="en_US.UTF-8"
-  export LANGUAGE="en_US.UTF-8"
-
-  # Essential PATH (keep basic functionality)
-  export PATH="$HOME/bin:/usr/local/bin:/opt/homebrew/bin:$PATH"
-
-  # Load critical environment from .env if it exists
-  [[ -f ~/.env ]] && source ~/.env
-
-  return  # Prevents loading the rest of .zshrc for Cursor
+  export IS_CURSOR=1
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ -z "$IS_CURSOR" ]]; then
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
 #
 
 # Path to your oh-my-zsh configuration.
@@ -54,6 +27,11 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=powerlevel10k/powerlevel10k
 #ZSH_THEME="spaceship"
 #ZSH_THEME="agnoster"
+
+# Lighter theme in Cursor to avoid heavy prompt init
+if [[ -n "$IS_CURSOR" ]]; then
+  ZSH_THEME=""
+fi
 
 
 # Uncomment the following line to enable command auto-correction.
@@ -71,39 +49,56 @@ COMPLETION_WAITING_DOTS="true"
 # PLUGIN OPTIMIZATION
 # ==========================================
 # Which plugins would you like to load?
-# Note: Only load what you need to improve shell startup time
-plugins=(
-git
-github
-gh
-ruby
-gem
-brew
-pod
-macos
-npm
-node
-z
-tmux
-rsync
-history
-docker
-docker-compose
-yarn
-poetry
-# add from idealatom setup on vps:
-gitfast
-python
-pyenv
-safe-paste
-zsh-interactive-cd
-zsh-navigation-tools
-F-Sy-H # (fast-syntax-highlighting)
-zsh-autosuggestions
-history-substring-search    # history-substring-search should be loaded after zsh-syntax-highlighting and zsh-autosuggestions
-)
+if [[ -n "$IS_CURSOR" ]]; then
+  # Trim plugin set in Cursor to avoid slow/hanging startup
+  plugins=(
+  git
+  gh
+  macos
+  history
+  z
+  )
+else
+  # Full plugin set
+  plugins=(
+  git
+  github
+  gh
+  ruby
+  gem
+  brew
+  pod
+  macos
+  npm
+  node
+  z
+  tmux
+  rsync
+  history
+  docker
+  docker-compose
+  yarn
+  poetry
+  # add from idealatom setup on vps:
+  gitfast
+  python
+  pyenv
+  safe-paste
+  zsh-interactive-cd
+  zsh-navigation-tools
+  F-Sy-H # (fast-syntax-highlighting)
+  zsh-autosuggestions
+  history-substring-search    # history-substring-search should be loaded after zsh-syntax-highlighting and zsh-autosuggestions
+  )
+fi
 
 source $ZSH/oh-my-zsh.sh
+
+# Simple prompt in Cursor
+if [[ -n "$IS_CURSOR" ]]; then
+  PROMPT='%F{blue}%~%f %# '
+  RPROMPT=''
+fi
 
 # ==========================================
 # PYTHON ENVIRONMENT SETUP
@@ -123,10 +118,12 @@ export PATH="$HOME/.local/bin:$PATH"
 # ==========================================
 # NODE.JS ENVIRONMENT SETUP
 # ==========================================
-# NVM setup
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# NVM setup (skip in Cursor to avoid slow startup)
+if [[ -z "$IS_CURSOR" ]]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -143,7 +140,9 @@ export GEM_HOME=$HOME/.gem
 export PATH=$HOME/.gem/bin:$PATH
 export RUBYPATH="/usr/local/lib/ruby/gems/2.7.0"
 export PATH=$RUBYPATH/bin:$PATH
-eval "$(rbenv init - zsh)"
+if [[ -z "$IS_CURSOR" ]]; then
+  eval "$(rbenv init - zsh)"
+fi
 
 # ==========================================
 # GOLANG ENVIRONMENT SETUP
@@ -373,8 +372,10 @@ export LIBRARY_PATH=/opt/homebrew/lib:$LIBRARY_PATH
 export PKG_CONFIG_PATH=/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH
 
 . "$HOME/.local/bin/env"
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
+if [[ -z "$IS_CURSOR" ]]; then
+  eval "$(uv generate-shell-completion zsh)"
+  eval "$(uvx --generate-shell-completion zsh)"
+fi
 
 # bun completions
 [ -s "/Users/pk/.bun/_bun" ] && source "/Users/pk/.bun/_bun"

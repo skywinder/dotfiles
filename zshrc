@@ -375,3 +375,12 @@ export PKG_CONFIG_PATH=/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH
 . "$HOME/.local/bin/env"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
+
+# bun completions
+[ -s "/Users/pk/.bun/_bun" ] && source "/Users/pk/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+alias claude="/Users/pk/.claude/local/claude"

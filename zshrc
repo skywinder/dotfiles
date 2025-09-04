@@ -2,20 +2,27 @@
 #
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
-if [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+if [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -z "$CURSOR_AGENT" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # --- Cursor/VSCode detection ---
-if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+if [[ "$TERM_PROGRAM" == "vscode" ]] || [[ "$TERM_PROGRAM" == "cursor" ]] || [[ -n "$CURSOR_AGENT" ]]; then
   export IS_CURSOR=1
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-if [[ -z "$IS_CURSOR" ]]; then
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Uncomment the lines below for minimal Cursor configuration (fastest startup)
+# if [[ -n "$IS_CURSOR" ]]; then
+#   # Minimal configuration for Cursor - just basic PATH and aliases
+#   export PATH="$HOME/bin:$PATH"
+#   return
+# fi
+
+if [[ -n "$IS_CURSOR" ]]; then
+  # Skip theme initialization for better compatibility
+else
+  [[ -r ~/.p10k.zsh ]] && source ~/.p10k.zsh
 fi
-#
 
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
@@ -180,8 +187,10 @@ export PATH="$PATH:$NARGO_HOME/bin"
 export BB_HOME="/Users/pk/.bb"
 export PATH="$PATH:$BB_HOME"
 
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# FZF (skip in Cursor to avoid command interference)
+if [[ -z "$IS_CURSOR" ]]; then
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fi
 
 # ==========================================
 # PATH DEDUPLICATION
@@ -212,7 +221,10 @@ source ~/.env
 # ==========================================
 
 # ls after cd: (https://vas3k.club/question/3817/)
-cd() { builtin cd $@ && ls -lh }
+# Skip in Cursor to avoid interfering with command detection
+if [[ -z "$IS_CURSOR" ]]; then
+  cd() { builtin cd $@ && ls -lh }
+fi
 
 # Python aliases
 # alias python=python3

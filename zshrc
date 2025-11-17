@@ -365,7 +365,9 @@ alias sudo='sudo -E'
 
 # for color logs:
 #alias tail='grc tail'
-alias tail='grc --colour=auto tail'
+#alias tail='grc --colour=auto tail'
+alias tail='grc --config ~/.grc/conf.tail tail'
+alias dc="docker compose"
 
 ### -----------------------------------------------------------
 ### 1-LINE PROGRESS  •  FULL-METADATA LOCAL CLONE  •  APFS/HFS+

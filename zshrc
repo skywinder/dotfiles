@@ -397,3 +397,4 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias claude="/Users/pk/.claude/local/claude"
+. "/Users/pk/.deno/env"

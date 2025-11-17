@@ -2,14 +2,14 @@
 #
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
-if [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -z "$CURSOR_AGENT" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -z "$CURSOR_AGENT" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
-# --- Cursor/VSCode detection ---
-if [[ "$TERM_PROGRAM" == "vscode" ]] || [[ "$TERM_PROGRAM" == "cursor" ]] || [[ -n "$CURSOR_AGENT" ]]; then
-  export IS_CURSOR=1
-fi
+## --- Cursor/VSCode detection ---
+#if [[ "$TERM_PROGRAM" == "vscode" ]] || [[ "$TERM_PROGRAM" == "cursor" ]] || [[ -n "$CURSOR_AGENT" ]]; then
+  #export IS_CURSOR=1
+#fi
 
 # Uncomment the lines below for minimal Cursor configuration (fastest startup)
 # if [[ -n "$IS_CURSOR" ]]; then

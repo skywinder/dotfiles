@@ -85,7 +85,6 @@ else
   docker
   docker-compose
   yarn
-  poetry
   # add from idealatom setup on vps:
   gitfast
   python
@@ -229,6 +228,9 @@ fi
 # Python aliases
 # alias python=python3
 # alias pip=pip3
+if command -v uvx >/dev/null 2>&1; then
+alias poetry='uvx poetry'
+fi
 
 # Put any proprietary or private functions/values in ~/.private, and this will source them
 if [ -f $HOME/.private ]; then
@@ -400,3 +402,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias claude="/Users/pk/.claude/local/claude"
 . "/Users/pk/.deno/env"
+alias ai="aichat -e"

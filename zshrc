@@ -366,9 +366,11 @@ alias kraken='open -na "GitKraken" --args -p "$(git rev-parse --show-toplevel)"'
 alias sudo='sudo -E'
 
 # for color logs:
-#alias tail='grc tail'
-#alias tail='grc --colour=auto tail'
-alias tail='grc --config ~/.grc/conf.tail tail'
+alias tail='grc tail'
+
+# Colorful tail with grc
+alias ctail='grc tail'
+
 alias dc="docker compose"
 
 ### -----------------------------------------------------------

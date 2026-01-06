@@ -1,0 +1,198 @@
+# GRC Configuration for Log Files
+# Colors: black, red, green, yellow, blue, magenta, cyan, white
+# Modifiers: bold, blink, underline, reverse, dark (prefix with "dark" for dim)
+
+# ============================================================
+# TIMESTAMPS
+# ============================================================
+
+# ISO8601 with Z suffix: [2026-01-06T18:29:50.685Z]
+regexp=^\[([0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z)\]
+colours=dark magenta
+==========
+
+# Standard format: [2024-01-06 12:34:56,789] or 2024-01-06 12:34:56,789
+regexp=\[?[0-9]{4}-[0-9]{2}-[0-9]{2}[T ]?[0-9]{2}:[0-9]{2}:[0-9]{2}[,\.][0-9]{3}\]?
+colours=magenta
+==========
+
+# ============================================================
+# LOG LEVELS (ordered by severity)
+# ============================================================
+
+# CRITICAL/FATAL
+regexp=\[(CRITICAL|FATAL)\]|(?<= )(CRITICAL|FATAL)(?=:| -)
+colours=bold magenta
+==========
+
+# ERROR - bracketed or colon-suffix
+regexp=\[ERROR\]| - ERROR -|(?<= )ERROR(?=:)
+colours=bold red
+==========
+
+# WARNING/WARN
+regexp=\[WARN(ING)?\]| - WARN(ING)? -|(?<= )WARN(?=:)
+colours=yellow
+==========
+
+# INFO
+regexp=\[INFO\]| - INFO -|(?<= )INFO(?=:)
+colours=green
+==========
+
+# DEBUG
+regexp=\[DEBUG\]| - DEBUG -|(?<= )DEBUG(?=:)
+colours=cyan
+==========
+
+# ============================================================
+# MODULE/COMPONENT PATHS
+# ============================================================
+
+# Python module paths: [module.submodule.class]
+regexp=\[[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)+\]
+colours=white
+==========
+
+# Logger names between dashes: - daemon - or - pymongo.collection -
+regexp= - [a-zA-Z0-9._]+(?= - )
+colours=blue
+==========
+
+# File references: [file.py:123]
+regexp=\[[a-zA-Z0-9_\-\.]+\.py:[0-9]+\]
+colours=blue
+==========
+
+# ============================================================
+# HTTP TRAFFIC
+# ============================================================
+
+# HTTP methods
+regexp="(GET|POST|PUT|DELETE|PATCH|OPTIONS|HEAD)
+colours=bold cyan
+==========
+
+# Incoming request with method + path (Mycelia style)
+regexp=(Incoming request:)\s+(GET|POST|PUT|DELETE|PATCH|OPTIONS|HEAD)\s+(\S+)
+colours=default,bold cyan,magenta
+==========
+
+# HTTP 2xx success
+regexp=HTTP/[12](\.[01])?" [23][0-9]{2}
+colours=green
+==========
+
+# HTTP 4xx client error
+regexp=HTTP/[12](\.[01])?" 4[0-9]{2}
+colours=yellow
+==========
+
+# HTTP 5xx server error
+regexp=HTTP/[12](\.[01])?" 5[0-9]{2}
+colours=bold red
+==========
+
+# URL paths: /v1/users/123
+regexp=/v[0-9](/[a-zA-Z0-9_\-]+)+(?=\?|"|\s|$)
+colours=bold yellow
+==========
+
+# ============================================================
+# IDENTIFIERS
+# ============================================================
+
+# UUID: 8-4-4-4-12 format
+regexp=[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
+colours=cyan
+==========
+
+# Long hex strings (Mongo ObjectId, hashes): 24-64 chars
+regexp=\b[a-f0-9]{24,64}\b
+colours=bold cyan
+==========
+
+# IP addresses
+regexp=[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+
+colours=white
+==========
+
+# ============================================================
+# STATUS & KEYWORDS
+# ============================================================
+
+# Positive status words
+regexp=\b(started|established|triggered|accepted|connected|success|ok|completed)\b
+colours=green
+==========
+
+# Negative status words
+regexp=\b(closed|timeout|failed|error|refused|rejected)\b
+colours=red
+==========
+
+# Key labels
+regexp=\b(UID|Model|Service|Language|Codec|Status):
+colours=bold yellow
+==========
+
+# ============================================================
+# ERRORS & MESSAGES
+# ============================================================
+
+# Error messages after colon
+regexp=Error:.*$
+colours=bold red
+==========
+
+# NoneType errors
+regexp='NoneType'.*$
+colours=bold red
+==========
+
+# ============================================================
+# DURATIONS & METRICS
+# ============================================================
+
+# Time durations: 420s, 16ms, 5m, 2h
+regexp=\b[0-9]+(ms|s|m|h)\b
+colours=magenta
+==========
+
+# ============================================================
+# JSON & STRUCTURED DATA
+# ============================================================
+
+# JSON keys: "key":
+regexp="[a-zA-Z0-9_]+"(?=\s*:)
+colours=bold white
+==========
+
+# JSON booleans/null
+regexp=\b(true|false|null)\b
+colours=magenta
+==========
+
+# Quoted strings (after JSON keys)
+regexp="[^"]*"(?!\s*:)
+colours=green
+==========
+
+# Mongo ObjectId fields
+regexp="\$oid":\s*"[^"]+"
+colours=yellow
+==========
+
+# Single-quoted strings
+regexp='[^']*'
+colours=cyan
+==========
+
+# ============================================================
+# SEPARATORS
+# ============================================================
+
+# Section separators
+regexp=^-{5,}|={5,}$
+colours=bold white
+==========

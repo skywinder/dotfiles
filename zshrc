@@ -403,3 +403,15 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 alias claude="/Users/pk/.claude/local/claude"
 . "/Users/pk/.deno/env"
 alias ai="aichat -e"
+
+# Added by Antigravity
+export PATH="/Users/pk/.antigravity/antigravity/bin:$PATH"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+eval "$(screenpipe completions zsh)"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/pk/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
